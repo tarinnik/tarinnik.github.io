@@ -1,0 +1,25 @@
+body {
+ background-color:#272a30;
+ margin: 50px;
+}
+
+ul.nav {
+ list-style-type: none;
+ margin: 0;
+ padding: 0;
+ overflow: hidden;
+}
+
+li.nav {
+ display: inline;
+ float: center;
+}
+
+li a {
+ color: white;
+}
+
+a:link, a:visited {
+ text-decoration: none;
+}
+
