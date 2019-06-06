@@ -1,1 +1,1 @@
-# tarinnik.github.io
+# tarinnik.gitlab.io
