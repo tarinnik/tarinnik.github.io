@@ -12,7 +12,6 @@ ul.nav {
 
 li.nav {
  display: inline;
- float: center;
 }
 
 li a {
@@ -33,3 +32,14 @@ a:link, a:visited {
  text-decoration: none;
 }
 
+.grid-container {
+ display: grid;
+ grid-template-columns: auto auto auto;
+ padding: 10px;
+}
+
+.grid-item {
+ color: white;
+ padding: 20px;
+ text-align: center;
+}
