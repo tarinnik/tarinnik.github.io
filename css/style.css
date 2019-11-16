@@ -35,6 +35,8 @@ a:link, a:visited {
 .grid-container {
  display: grid;
  grid-template-columns: auto auto auto;
+ justify-content: center;
+ margin-top: 70px;
  padding: 10px;
 }
 
