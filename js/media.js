@@ -5,6 +5,11 @@ window.addEventListener('load', function () {
         if (url[i + 1] === "m" && url.length === i + 2) {
             m();
         }
+    } else {
+        let r = localStorage.getItem("redirect");
+        if (r !== null) {
+            window.location = window.location.href + "?" + r;
+        }
     }
 });
 
