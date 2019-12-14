@@ -1,19 +1,32 @@
 window.addEventListener('load', function () {
     let url = window.location.href;
-    let i;
-    if (i = url.indexOf("?"), i !== -1) {
-        if (url[i + 1] === "m" && url.length === i + 2) {
-            m();
-        }
+    let i = url.indexOf("?");
+    if (i !== -1) {
+        redirect(i, false);
     } else {
         let r = localStorage.getItem("redirect");
         if (r !== null) {
-            window.location = window.location.href + "?" + r;
+            redirect(r, true);
         }
     }
 });
 
-function m() {
+function redirect(item, load) {
+    let url = window.location.href;
+    if (load) {
+        if (item === 'm') {
+            m(load);
+        }
+    } else {
+        // m
+        if (url[item + 1] === 'm' && url.length === item + 2) {
+            m(load);
+        }
+    }
+}
+
+function m(load) {
+    if (load) history.replaceState({}, "Media", "?m");
     document.getElementById("twitch").remove();
 }
 
