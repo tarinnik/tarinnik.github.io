@@ -55,6 +55,11 @@ function key(event) {
             break;
         case '8':
             highlight(DIRECTION.backwards);
+            break;
+        case 'Enter':
+            selection = getSelectElements().length - 1;
+            select();
+            break;
     }
 }
 
