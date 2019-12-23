@@ -19,7 +19,7 @@ li.nav {
 }
 
 .selected {
-  color: red;
+ color: red;
 }
 
 li a {
@@ -54,6 +54,11 @@ a:link, a:visited {
  text-align: center;
 }
 
+.grid-img {
+ height: 20vh;
+}
+
 form.services {
  margin-top: 70px;
 }
+

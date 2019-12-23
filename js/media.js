@@ -22,8 +22,9 @@ document.addEventListener('keydown', function (event) {
 });
 
 function key(event) {
-    if (event.key === '+') toggle();
+    if (event.key === '-') toggle();
     else if (event.key === '/') window.location = '.';
+    else if (event.key === '+') window.location = 'settings';
     if (menu) {
         switch (event.key) {
             case '4':
@@ -63,6 +64,12 @@ function key(event) {
                 break;
             case '9':
                 select(2);
+                break;
+            case '0':
+                select(9);
+                break;
+            case '.':
+                select(10);
                 break;
         }
     }
