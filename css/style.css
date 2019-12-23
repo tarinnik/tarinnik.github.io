@@ -3,6 +3,10 @@ body {
  margin: 50px;
 }
 
+.text, input {
+ color: white;
+}
+
 ul.nav {
  list-style-type: none;
  margin: -25px -50px;
@@ -12,6 +16,10 @@ ul.nav {
 
 li.nav {
  display: inline;
+}
+
+.selected {
+  color: red;
 }
 
 li a {
@@ -44,4 +52,8 @@ a:link, a:visited {
  color: white;
  padding: 20px;
  text-align: center;
+}
+
+form.services {
+ margin-top: 70px;
 }

@@ -1,6 +1,6 @@
 window.addEventListener('load', function () {
     let hide = window.localStorage.getItem("hide");
-    if (hide === "") return;
+    if (hide === "" || hide === null) return;
     hide = hide.split(";");
     for (let i = 0; i < hide.length; i++) {
         document.getElementById(hide[i]).remove();

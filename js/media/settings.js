@@ -17,7 +17,7 @@ window.addEventListener('load', function() {
  */
 function load() {
     let hide = window.localStorage.getItem("hide");
-    if (hide === "") return;
+    if (hide === "" || hide === null) return;
     hide = hide.split(";");
     for (let i in hide) {
         document.getElementById(hide[i]).checked = false;
