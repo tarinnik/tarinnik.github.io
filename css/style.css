@@ -18,8 +18,13 @@ li.nav {
  display: inline;
 }
 
-.selected {
+.selectedText {
  color: red;
+}
+
+.selected {
+ background: white;
+ padding: 7px 7px 3px;
 }
 
 li a {
@@ -49,8 +54,7 @@ a:link, a:visited {
 }
 
 .grid-item {
- color: white;
- padding: 20px;
+ margin: 20px;
  text-align: center;
 }
 

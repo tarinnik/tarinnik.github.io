@@ -114,9 +114,9 @@ function toggle() {
 function highlight(d) {
     let elements = menuElements();
     if (d === DIRECTION.none) {
-        elements[selection].classList.add("selected");
+        elements[selection].classList.add("selectedText");
     } else if (d === DIRECTION.remove) {
-        elements[selection].classList.remove("selected");
+        elements[selection].classList.remove("selectedText");
     } else if (d === DIRECTION.backwards && selection > 0) {
         highlight(DIRECTION.remove);
         selection--;
