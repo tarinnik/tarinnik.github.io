@@ -1,4 +1,4 @@
-window.addEventListener('load', function () {
+window.addEventListener('DOMContentLoaded', function () {
     let hide = window.localStorage.getItem("hide");
     if (hide === "" || hide === null) {
         highlight(DIRECTION.none);
