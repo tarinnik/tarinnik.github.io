@@ -66,7 +66,6 @@ function key(event) {
             window.location = '.';
             break;
     }
-
 }
 
 /**
@@ -102,39 +101,52 @@ function toggle() {
     }
 }
 
+function getColumns() {
+    let a = document.getElementById("services");
+    let b = window.getComputedStyle(a).getPropertyValue("grid-template-columns");
+    return b.split(' ').length;
+}
+
 /**
  * Highlights in the direction specified
  * @param d direction to highlight
  */
 function highlight(d) {
     let elements = getElements();
+    let columns = getColumns();
     if (d === DIRECTION.none) {
         if (menu) {
             elements[selection].classList.add("selectedText");
         } else {
-            elements[selection].classList.add("selected");
+            let e = elements[selection].getElementsByTagName("img")[0].src;
+            e = e.split('/');
+            e = e[e.length -1 ];
+            elements[selection].getElementsByTagName("img")[0].src = "/images/" + e.split('.')[0] + "-selected.jpg";
         }
     } else if (d === DIRECTION.remove) {
         if (menu) {
             elements[selection].classList.remove("selectedText");
         } else {
-            elements[selection].classList.remove("selected");
+            let e = elements[selection].getElementsByTagName("img")[0].src;
+            e = e.split('/');
+            e = e[e.length -1 ];
+            elements[selection].getElementsByTagName("img")[0].src = "/images/" + e.split('-')[0] + '.jpg';
         }
-    } else if ((d === DIRECTION.backwards && selection > 0) && (menu || (!menu && selection % 3 !== 0))) {
+    } else if ((d === DIRECTION.backwards && selection > 0) && (menu || (!menu && selection % columns !== 0))) {
         highlight(DIRECTION.remove);
         selection--;
         highlight(DIRECTION.none);
-    } else if ((d === DIRECTION.forward && selection < elements.length - 1) && (menu || (!menu && selection % 3 !== 2))) {
+    } else if ((d === DIRECTION.forward && selection < elements.length - 1) && (menu || (!menu && selection % columns !== columns - 1))) {
         highlight(DIRECTION.remove);
         selection++;
         highlight(DIRECTION.none);
-    } else if (d === DIRECTION.up && !menu && selection > 2) {
+    } else if (d === DIRECTION.up && !menu && selection > columns - 1) {
         highlight(DIRECTION.remove);
-        selection -= 3;
+        selection -= columns;
         highlight(DIRECTION.none);
-    } else if (d === DIRECTION.down && !menu && selection < elements.length - 3) {
+    } else if (d === DIRECTION.down && !menu && selection < elements.length - columns) {
         highlight(DIRECTION.remove);
-        selection += 3;
+        selection += columns;
         highlight(DIRECTION.none);
     }
 }
