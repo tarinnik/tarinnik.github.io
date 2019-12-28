@@ -8,6 +8,10 @@ window.addEventListener('load', function () {
     for (let i = 0; i < hide.length; i++) {
         document.getElementById(hide[i]).remove();
     }
+    let elements = getElements();
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].getElementsByTagName("img")[1].classList.add("hidden");
+    }
     highlight(DIRECTION.none);
 });
 
@@ -118,19 +122,15 @@ function highlight(d) {
         if (menu) {
             elements[selection].classList.add("selectedText");
         } else {
-            let e = elements[selection].getElementsByTagName("img")[0].src;
-            e = e.split('/');
-            e = e[e.length -1 ];
-            elements[selection].getElementsByTagName("img")[0].src = "/images/" + e.split('.')[0] + "-selected.jpg";
+            elements[selection].getElementsByTagName("img")[1].classList.remove("hidden");
+            elements[selection].getElementsByTagName("img")[0].classList.add("hidden");
         }
     } else if (d === DIRECTION.remove) {
         if (menu) {
             elements[selection].classList.remove("selectedText");
         } else {
-            let e = elements[selection].getElementsByTagName("img")[0].src;
-            e = e.split('/');
-            e = e[e.length -1 ];
-            elements[selection].getElementsByTagName("img")[0].src = "/images/" + e.split('-')[0] + '.jpg';
+            elements[selection].getElementsByTagName("img")[0].classList.remove("hidden");
+            elements[selection].getElementsByTagName("img")[1].classList.add("hidden");
         }
     } else if ((d === DIRECTION.backwards && selection > 0) && (menu || (!menu && selection % columns !== 0))) {
         highlight(DIRECTION.remove);
