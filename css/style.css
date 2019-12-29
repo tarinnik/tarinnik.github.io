@@ -39,6 +39,24 @@ a:link, a:visited {
  text-decoration: none;
 }
 
+.section-container {
+ display: grid;
+ grid-template-columns: 10% 80% 10%;
+ justify-content: center;
+ margin-top: 70px;
+ padding: 10px;
+}
+
+.section-item {
+ margin: 20px;
+ text-align: center;
+}
+
+.section-img {
+ height: 20%;
+ margin-top: 80px;
+}
+
 .grid-container {
  display: grid;
  grid-template-columns: repeat(auto-fill,minmax(400px,1fr));;

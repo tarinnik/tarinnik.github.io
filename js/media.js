@@ -8,12 +8,17 @@ window.addEventListener('DOMContentLoaded', function () {
     for (let i = 0; i < hide.length; i++) {
         document.getElementById(hide[i]).remove();
     }
+    hideSelected();
+    highlight(DIRECTION.none);
+});
+
+function hideSelected() {
     let elements = getElements();
     for (let i = 0; i < elements.length; i++) {
         elements[i].getElementsByTagName("img")[1].classList.add("hidden");
     }
-    highlight(DIRECTION.none);
-});
+    document.getElementById("settings").getElementsByTagName("img")[1].classList.add("hidden");
+}
 
 let menu = false;
 let selection = 0;
@@ -36,22 +41,42 @@ function key(event) {
         case '1':
             break;
         case '2':
-            highlight(DIRECTION.down);
+            if (menu) {
+                highlight(DIRECTION.forward);
+            } else {
+                highlight(DIRECTION.down);
+            }
             break;
         case '3':
             break;
         case '4':
-            highlight(DIRECTION.backwards);
+            if (!menu) {
+                highlight(DIRECTION.backwards);
+            } else {
+                highlight(DIRECTION.remove);
+                menu = false;
+                if (getElements().length < 3) {
+                    selection = getElements().length - 1;
+                } else {
+                    selection = 2;
+                }
+                highlight(DIRECTION.none);
+            }
             break;
         case '5':
             select();
             break;
         case '6':
-            highlight(DIRECTION.forward);
+            if (!menu) {
+                highlight(DIRECTION.forward);
+            }
             break;
         case '7':
             break;
         case '8':
+            if (menu) {
+                highlight(DIRECTION.backwards);
+            }
             highlight(DIRECTION.up);
             break;
         case '9':
@@ -85,7 +110,7 @@ function select() {
 
 function getElements() {
     if (menu) {
-        return document.getElementById("nav").getElementsByTagName("a");
+        return document.getElementById("settings").getElementsByTagName("a");
     } else {
         return document.getElementsByClassName("grid-item");
     }
@@ -106,9 +131,13 @@ function toggle() {
 }
 
 function getColumns() {
-    let a = document.getElementById("services");
-    let b = window.getComputedStyle(a).getPropertyValue("grid-template-columns");
-    return b.split(' ').length;
+    if (menu) {
+        return 1;
+    } else {
+        let a = document.getElementById("services");
+        let b = window.getComputedStyle(a).getPropertyValue("grid-template-columns");
+        return b.split(' ').length;
+    }
 }
 
 /**
@@ -119,19 +148,11 @@ function highlight(d) {
     let elements = getElements();
     let columns = getColumns();
     if (d === DIRECTION.none) {
-        if (menu) {
-            elements[selection].classList.add("selectedText");
-        } else {
-            elements[selection].getElementsByTagName("img")[1].classList.remove("hidden");
-            elements[selection].getElementsByTagName("img")[0].classList.add("hidden");
-        }
+        elements[selection].getElementsByTagName("img")[1].classList.remove("hidden");
+        elements[selection].getElementsByTagName("img")[0].classList.add("hidden");
     } else if (d === DIRECTION.remove) {
-        if (menu) {
-            elements[selection].classList.remove("selectedText");
-        } else {
-            elements[selection].getElementsByTagName("img")[0].classList.remove("hidden");
-            elements[selection].getElementsByTagName("img")[1].classList.add("hidden");
-        }
+        elements[selection].getElementsByTagName("img")[0].classList.remove("hidden");
+        elements[selection].getElementsByTagName("img")[1].classList.add("hidden");
     } else if ((d === DIRECTION.backwards && selection > 0) && (menu || (!menu && selection % columns !== 0))) {
         highlight(DIRECTION.remove);
         selection--;
@@ -147,6 +168,11 @@ function highlight(d) {
     } else if (d === DIRECTION.down && !menu && selection < elements.length - columns) {
         highlight(DIRECTION.remove);
         selection += columns;
+        highlight(DIRECTION.none);
+    } else if (DIRECTION.forward && !menu && selection % columns === columns - 1) {
+        highlight(DIRECTION.remove);
+        menu = true;
+        selection = 0;
         highlight(DIRECTION.none);
     }
 }
