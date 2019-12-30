@@ -1,12 +1,12 @@
 window.addEventListener('DOMContentLoaded', function () {
-    let hide = window.localStorage.getItem("hide");
-    if (hide === "" || hide === null) {
+    let media = window.localStorage.getItem("media");
+    if (media === "" || media === null) {
         cleanup();
         return;
     }
-    hide = hide.split(";");
-    for (let i = 0; i < hide.length; i++) {
-        document.getElementById(hide[i]).remove();
+    media = media.split(";");
+    for (let i = 0; i < media.length; i++) {
+        document.getElementById(media[i]).remove();
     }
     cleanup();
 });

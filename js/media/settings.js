@@ -16,11 +16,11 @@ window.addEventListener('load', function() {
  * Gets the hidden services and deselects them
  */
 function load() {
-    let hide = window.localStorage.getItem("hide");
-    if (hide === "" || hide === null) return;
-    hide = hide.split(";");
-    for (let i in hide) {
-        document.getElementById(hide[i]).checked = false;
+    let media = window.localStorage.getItem("media");
+    if (media === "" || media === null) return;
+    media = media.split(";");
+    for (let i in media) {
+        document.getElementById(media[i]).checked = false;
     }
 }
 
@@ -37,7 +37,7 @@ function save() {
         }
     }
     save = save.slice(0, save.length - 1);
-    window.localStorage.setItem("hide", save);
+    window.localStorage.setItem("media", save);
     window.location = "..";
 }
 
