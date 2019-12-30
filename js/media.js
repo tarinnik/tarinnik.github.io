@@ -126,4 +126,16 @@ function highlight(d) {
         selection += columns;
         highlight(DIRECTION.none);
     }
+
+    scroll();
+}
+
+function scroll() {
+    if (selection > 8) {
+        let i = selection - 7;
+        i = parseInt(i + "");
+        window.scrollTo(0, 100 * i);
+    } else {
+        window.scrollTo(0, 0);
+    }
 }
