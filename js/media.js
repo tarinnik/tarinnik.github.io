@@ -1,39 +1,3 @@
-window.addEventListener('DOMContentLoaded', function () {
-    let media = window.localStorage.getItem("media");
-    if (media === "" || media === null) {
-        cleanup();
-        return;
-    }
-    media = media.split(";");
-    for (let i = 0; i < media.length; i++) {
-        document.getElementById(media[i]).remove();
-    }
-    cleanup();
-});
-
-function cleanup() {
-    hideSelected();
-    highlight(DIRECTION.none);
-}
-
-function hideSelected() {
-    let elements = getElements();
-    for (let i = 0; i < elements.length; i++) {
-        elements[i].getElementsByTagName("img")[1].classList.add("hidden");
-    }
-}
-
-let selection = 0;
-
-const DIRECTION = {
-    none: 0,
-    remove: 'r',
-    forward: 1,
-    backwards: -1,
-    up: -2,
-    down: 2,
-};
-
 document.addEventListener('keydown', function (event) {
     key(event);
 });
@@ -71,12 +35,49 @@ function key(event) {
             window.location = 'settings';
             break;
         case '-':
+            window.location = 'help';
             break;
         case '/':
             window.location = '.';
             break;
     }
 }
+
+window.addEventListener('DOMContentLoaded', function () {
+    let media = window.localStorage.getItem("media");
+    if (media === "" || media === null) {
+        cleanup();
+        return;
+    }
+    media = media.split(";");
+    for (let i = 0; i < media.length; i++) {
+        document.getElementById(media[i]).remove();
+    }
+    cleanup();
+});
+
+function cleanup() {
+    hideSelected();
+    highlight(DIRECTION.none);
+}
+
+function hideSelected() {
+    let elements = getElements();
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].getElementsByTagName("img")[1].classList.add("hidden");
+    }
+}
+
+let selection = 0;
+
+const DIRECTION = {
+    none: 0,
+    remove: 'r',
+    forward: 1,
+    backwards: -1,
+    up: -2,
+    down: 2,
+};
 
 /**
  * Selects the services to navigate to
