@@ -53,6 +53,10 @@ window.addEventListener('DOMContentLoaded', function () {
     for (let i = 0; i < media.length; i++) {
         document.getElementById(media[i]).remove();
     }
+
+    if (window.localStorage.getItem("nav-disabled") === "true") {
+        document.getElementById("nav").remove();
+    }
     cleanup();
 });
 

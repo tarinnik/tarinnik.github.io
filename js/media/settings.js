@@ -30,6 +30,9 @@ function key(event) {
         case '/':
             window.location = '.';
             break;
+        case '.':
+            toggleNavbar();
+            break;
     }
 }
 
@@ -47,10 +50,15 @@ const DIRECTION = {
  */
 function load() {
     let media = window.localStorage.getItem("media");
-    if (media === "" || media === null) return;
-    media = media.split(";");
-    for (let i in media) {
-        document.getElementById(media[i]).checked = false;
+    if (media !== "" && media !== null) {
+        media = media.split(";");
+        for (let i in media) {
+            document.getElementById(media[i]).checked = false;
+        }
+    }
+    let navbar = window.localStorage.getItem("nav-disabled");
+    if (navbar === "true") {
+        document.getElementById("navbar-disabled").checked = true;
     }
 }
 
@@ -68,6 +76,8 @@ function save() {
     }
     save = save.slice(0, save.length - 1);
     window.localStorage.setItem("media", save);
+    window.localStorage.setItem("nav-disabled", document.getElementById("navbar-disabled").checked);
+
     window.location = "..";
 }
 
@@ -92,6 +102,11 @@ function unCheckAll() {
     checkmarks(false);
 }
 
+function toggleNavbar() {
+    let b = document.getElementById("navbar-disabled");
+    b.checked = !b.checked;
+}
+
 /**
  * Gets the elements to be highlighted
  */
@@ -110,8 +125,12 @@ function getSelectElements() {
  * Selects the currently highlighted element
  */
 function select() {
-    let elements = getSelectElements();
-    elements[selection].checked = !elements[selection].checked;
+    if (selection === getElements().length - 1) {
+        toggleNavbar();
+    } else {
+        let elements = getSelectElements();
+        elements[selection].checked = !elements[selection].checked;
+    }
 }
 
 /**
