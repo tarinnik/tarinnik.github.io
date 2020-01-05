@@ -1,3 +1,38 @@
+window.addEventListener('DOMContentLoaded', function() {
+    load();
+    highlight(DIRECTION.none);
+});
+
+document.addEventListener('keydown', function (event) {
+    key(event);
+});
+
+function key(event) {
+    switch (event.key) {
+        case '2':
+            highlight(DIRECTION.forward);
+            break;
+        case '5':
+            select();
+            break;
+        case '8':
+            highlight(DIRECTION.backwards);
+            break;
+        case 'Enter':
+            save();
+            break;
+        case '+':
+            document.getElementById("check-all").click();
+            break;
+        case '-':
+            window.location = '..';
+            break;
+        case '/':
+            window.location = '.';
+            break;
+    }
+}
+
 let selection = 0;
 
 const DIRECTION = {
@@ -6,11 +41,6 @@ const DIRECTION = {
     forward: 1,
     backwards: -1,
 };
-
-window.addEventListener('load', function() {
-    load();
-    highlight(DIRECTION.none);
-});
 
 /**
  * Gets the hidden services and deselects them
@@ -41,54 +71,39 @@ function save() {
     window.location = "..";
 }
 
-document.addEventListener('keydown', function (event) {
-    key(event);
-});
-
-function key(event) {
-    switch (event.key) {
-        case '2':
-            highlight(DIRECTION.forward);
-            break;
-        case '5':
-            select();
-            break;
-        case '8':
-            highlight(DIRECTION.backwards);
-            break;
-        case 'Enter':
-            selection = getSelectElements().length - 1;
-            select();
-            break;
+function checkmarks(checked) {
+    let e = getSelectElements();
+    for (let i = 0; i < e.length; i++) {
+        e[i].checked = checked;
     }
+}
+
+function checkAll() {
+    let button = document.getElementById("check-all");
+    button.innerHTML = "Uncheck all (+)";
+    button.setAttribute("onclick", "unCheckAll()");
+    checkmarks(true);
+}
+
+function unCheckAll() {
+    let button = document.getElementById("check-all");
+    button.innerHTML = "Check all (+)";
+    button.setAttribute("onclick", "checkAll()");
+    checkmarks(false);
 }
 
 /**
  * Gets the elements to be highlighted
  */
 function getElements() {
-    let e = [];
-    e.push(document.getElementById("back"));
-    let selections = document.getElementsByTagName("span");
-    for (let i = 0; i < selections.length; i++) {
-        e.push(selections[i]);
-    }
-    e.push(document.getElementById("save"));
-    return e;
+    return document.getElementsByClassName("option");
 }
 
 /**
  * Gets the elements to be selected
  */
 function getSelectElements() {
-    let e = [];
-    e.push(document.getElementById("back"));
-    let selections = document.getElementsByName("services");
-    for (let i = 0; i < selections.length; i++) {
-        e.push(selections[i]);
-    }
-    e.push(document.getElementById("save"));
-    return e;
+    return document.getElementsByName("services");
 }
 
 /**
@@ -96,11 +111,7 @@ function getSelectElements() {
  */
 function select() {
     let elements = getSelectElements();
-    if (selection === 0 || selection === elements.length - 1) {
-        elements[selection].click();
-    } else {
-        elements[selection].checked = !elements[selection].checked;
-    }
+    elements[selection].checked = !elements[selection].checked;
 }
 
 /**
