@@ -10,13 +10,27 @@ document.addEventListener('keydown', function (event) {
 function key(event) {
     switch (event.key) {
         case '2':
-            highlight(DIRECTION.forward);
+            if (move) {
+                moveDown();
+            } else {
+                highlight(DIRECTION.forward);
+            }
+            break;
+        case '4':
+            left();
             break;
         case '5':
             select();
             break;
+        case '6':
+            right();
+            break;
         case '8':
-            highlight(DIRECTION.backwards);
+            if (move) {
+                moveUp();
+            } else {
+                highlight(DIRECTION.backwards);
+            }
             break;
         case 'Enter':
             save();
@@ -37,6 +51,8 @@ function key(event) {
 }
 
 let selection = 0;
+let move = false;
+let moveSelected = false;
 
 const DIRECTION = {
     none: 0,
@@ -60,6 +76,16 @@ function load() {
     if (navbar === "true") {
         document.getElementById("navbar-disabled").checked = true;
     }
+
+    let order = window.localStorage.getItem("order");
+    if (order !== null) {
+        let parent = document.getElementsByClassName("services")[0];
+        order = order.split(';');
+        for (let i in order) {
+            let e = document.getElementById(order[i]).parentNode;
+            parent.insertBefore(e, parent.getElementsByTagName("label")[i]);
+        }
+    }
 }
 
 /**
@@ -69,7 +95,6 @@ function save() {
     let save = "";
     let inputs = document.getElementsByName("services");
     for (let i = 0; i < inputs.length; i++) {
-        console.log(inputs[i]);
         if (!(inputs[i].checked)) {
             save += inputs[i].id + ';';
         }
@@ -77,6 +102,14 @@ function save() {
     save = save.slice(0, save.length - 1);
     window.localStorage.setItem("media", save);
     window.localStorage.setItem("nav-disabled", document.getElementById("navbar-disabled").checked);
+
+    let order = document.getElementsByName("services");
+    let orderText = "";
+    for (let i = 0; i < order.length; i++) {
+        orderText += order[i].id + ';';
+    }
+    orderText = orderText.slice(0, orderText.length - 1);
+    window.localStorage.setItem("order", orderText);
 
     window.location = "..";
 }
@@ -125,12 +158,68 @@ function getSelectElements() {
  * Selects the currently highlighted element
  */
 function select() {
+    if (moveSelected) {
+        rearrange();
+        return;
+    } else if (move) {
+        stopRearrange();
+        return;
+    }
+
     if (selection === getElements().length - 1) {
         toggleNavbar();
     } else {
         let elements = getSelectElements();
         elements[selection].checked = !elements[selection].checked;
     }
+}
+
+function stopRearrange() {
+    move = false;
+    let e = document.getElementsByClassName("rearranging-text")[0].parentElement.getElementsByTagName("span");
+    for (let i = 0; i < e.length; i++) {
+        e[i].classList.remove("rearranging-text");
+        if (e[i].classList.contains("rearrange")) {
+            e[i].classList.add("hidden");
+        }
+    }
+    highlight(DIRECTION.none);
+}
+
+function rearrange() {
+    moveSelected = false;
+    move = true;
+    getElements()[selection].classList.add("rearranging-text");
+    let m = document.getElementsByClassName("rearrange")[selection];
+    m.classList.add("rearranging-text");
+    m.classList.remove("selectedText");
+}
+
+function moveUp() {
+    let e = document.getElementsByClassName("rearranging-text")[0].parentNode;
+    if (e.previousElementSibling) {
+        e.parentNode.insertBefore(e, e.previousElementSibling);
+    }
+}
+
+function moveDown() {
+    let e = document.getElementsByClassName("rearranging-text")[0].parentNode;
+    if (e.nextElementSibling) {
+        e.parentNode.insertBefore(e.nextElementSibling, e);
+    }
+}
+
+function left() {
+    getElements()[selection].classList.add("selectedText");
+    document.getElementsByClassName("rearrange")[selection].classList.remove("selectedText");
+    moveSelected = false;
+}
+
+function right() {
+    if (selection === getElements().length - 1) return;
+    getElements()[selection].classList.remove("selectedText");
+    document.getElementsByClassName("rearrange")[selection].classList.add("selectedText");
+    moveSelected = true;
 }
 
 /**
@@ -141,8 +230,12 @@ function highlight(d) {
     let elements = getElements();
     if (d === DIRECTION.none) {
         elements[selection].classList.add("selectedText");
+        document.getElementsByClassName("rearrange")[selection].classList.remove("hidden");
     } else if (d === DIRECTION.remove) {
         elements[selection].classList.remove("selectedText");
+        let move = document.getElementsByClassName("rearrange")[selection];
+        move.classList.add("hidden");
+        move.classList.remove("selectedText");
     } else if (d === DIRECTION.backwards && selection > 0) {
         highlight(DIRECTION.remove);
         selection--;

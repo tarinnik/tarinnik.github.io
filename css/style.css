@@ -22,6 +22,10 @@ li.nav {
  color: red;
 }
 
+.rearranging-text {
+ color: green;
+}
+
 li a {
  color: white;
  text-align: center;
