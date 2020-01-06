@@ -44,19 +44,28 @@ function key(event) {
 }
 
 window.addEventListener('DOMContentLoaded', function () {
-    let media = window.localStorage.getItem("media");
-    if (media === "" || media === null) {
-        cleanup();
-        return;
+    let order = window.localStorage.getItem("order");
+    if (order !== null) {
+        let parent = document.getElementById("services");
+        order = order.split(';');
+        for (let i in order) {
+            let e = document.getElementById(order[i]);
+            parent.insertBefore(e, parent.getElementsByClassName("grid-item")[i]);
+        }
     }
-    media = media.split(";");
-    for (let i = 0; i < media.length; i++) {
-        document.getElementById(media[i]).remove();
+
+    let media = window.localStorage.getItem("media");
+    if (media !== "" && media !== null) {
+        media = media.split(";");
+        for (let i = 0; i < media.length; i++) {
+            document.getElementById(media[i]).remove();
+        }
     }
 
     if (window.localStorage.getItem("nav-disabled") === "true") {
         document.getElementById("nav").remove();
     }
+
     cleanup();
 });
 
