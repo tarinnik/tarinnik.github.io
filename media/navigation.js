@@ -43,44 +43,6 @@ function key(event) {
     }
 }
 
-window.addEventListener('DOMContentLoaded', function () {
-    let order = window.localStorage.getItem("order");
-    if (order !== null) {
-        let parent = document.getElementById("services");
-        order = order.split(';');
-        for (let i in order) {
-            let e = document.getElementById(order[i]);
-            parent.insertBefore(e, parent.getElementsByClassName("grid-item")[i]);
-        }
-    }
-
-    let media = window.localStorage.getItem("media");
-    if (media !== "" && media !== null) {
-        media = media.split(";");
-        for (let i = 0; i < media.length; i++) {
-            document.getElementById(media[i]).remove();
-        }
-    }
-
-    if (window.localStorage.getItem("nav-disabled") === "true") {
-        document.getElementById("nav").remove();
-    }
-
-    cleanup();
-});
-
-function cleanup() {
-    hideSelected();
-    highlight(DIRECTION.none);
-}
-
-function hideSelected() {
-    let elements = getElements();
-    for (let i = 0; i < elements.length; i++) {
-        elements[i].getElementsByTagName("img")[1].classList.add("hidden");
-    }
-}
-
 let selection = 0;
 
 const DIRECTION = {
@@ -118,11 +80,9 @@ function highlight(d) {
     let elements = getElements();
     let columns = getColumns();
     if (d === DIRECTION.none) {
-        elements[selection].getElementsByTagName("img")[1].classList.remove("hidden");
-        elements[selection].getElementsByTagName("img")[0].classList.add("hidden");
+        elements[selection].getElementsByTagName("img")[0].style.background = HIGHLIGHT_COLOUR;
     } else if (d === DIRECTION.remove) {
-        elements[selection].getElementsByTagName("img")[0].classList.remove("hidden");
-        elements[selection].getElementsByTagName("img")[1].classList.add("hidden");
+        elements[selection].getElementsByTagName("img")[0].style.background = "";
     } else if (d === DIRECTION.backwards && selection > 0 && selection % columns !== 0) {
         highlight(DIRECTION.remove);
         selection--;
