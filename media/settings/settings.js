@@ -8,6 +8,11 @@ document.addEventListener('keydown', function (event) {
 });
 
 function key(event) {
+    if (document.getElementById("highlight-colour") === document.activeElement ||
+            document.getElementById("background-colour") === document.activeElement) {
+        return;
+    }
+
     switch (event.key) {
         case '2':
             if (move) {
@@ -86,6 +91,17 @@ function load() {
             parent.insertBefore(e, parent.getElementsByTagName("label")[i]);
         }
     }
+
+    let background = window.localStorage.getItem("background");
+    if (background !== null) {
+        document.getElementById("background-colour").value = background;
+    }
+
+    let highlight = window.localStorage.getItem("highlight");
+    if (highlight !== null) {
+        document.getElementById("highlight-colour").value = highlight;
+    }
+
 }
 
 /**
@@ -110,6 +126,9 @@ function save() {
     }
     orderText = orderText.slice(0, orderText.length - 1);
     window.localStorage.setItem("order", orderText);
+
+    window.localStorage.setItem("background", document.getElementById("background-colour").value);
+    window.localStorage.setItem("highlight", document.getElementById("highlight-colour").value);
 
     window.location = "..";
 }

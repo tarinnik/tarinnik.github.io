@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <script src="/js/media/settings.js"></script>
+    <script src="settings.js"></script>
 </head>
 <body>
 
@@ -101,8 +101,18 @@
             <input id="navbar-disabled" type="checkbox" name="navbar">
             <span class="checkmark"></span>
         </label>
+        <label><br>
+            <span class="text">Background colour:</span><br>
+            <input id="background-colour" type="text" style="color:black">
+        </label>
+        <label><br><br>
+            <span class="text">Highlight colour:</span><br>
+            <input id="highlight-colour" type="text" style="color:black">
+        </label>
     </form>
     <br>
+
+
 
     <button id="save" class="pointer" type="button" onclick="save()">Save (Enter)</button>
 </div>
