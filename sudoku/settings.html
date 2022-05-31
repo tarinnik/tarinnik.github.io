@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/settings.js"></script>
+</head>
+<body>
+    <div id="header" class="row">
+        <div class="col-12 col-s-12" style="padding-right:0px;padding-left:0px;">
+            <ul class="header">
+                <li class="logo"><a href="index.html">Sudoku</a></li>
+                <li class="nav"><a href="statistics.html">Statistics</a></li>
+                <li class="nav"><a href="play.html">Play</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 col-s-12 centre">
+            <form onsubmit="return false;" method="post" name="settings">
+                <input type="submit" class="button" onclick="saveSettings()" value="Save">
+                <br><br>
+                <label>Keyboard Input
+                    <input type="checkbox" id="keyboard_input">
+                    <span class="checkbox"></span>
+                </label>
+                <p>Enable number input from the keyboard in addtion to the buttons.</p>
+                <br>
+                <label>Toggle Notes Selection with Space
+                    <input type="checkbox" id="keyboard_notes">
+                    <span class="checkbox"></span>
+                </label>
+                <p>The notes feature can be toggled on and off with the space bar in addition to clicking the button.</p>
+                <br>
+                <label>Arrow Key Navigation
+                    <input type="checkbox" id="arrow_nav">
+                    <span class="checkbox"></span>
+                </label>
+                <p>Highlight adjacent boxes using the arrow keys in addition to clicking the box.</p>
+                <br>
+                <label>Quick Navigation
+                    <input type="checkbox" id="quick_nav">
+                    <span class="checkbox"></span>
+                </label>
+                <p>Quickly navigate to a box using just the numperpad. When nothing is highlighted, pressing a number on the numpad will highlight the respective square, and pressing another number will highlight the respective box in that square. For example, pressing 7 with nothing highlighted will highlight the top left square, since 7 is in the top left of the numpad. Pressing 2 will then select the bottom middle box in the top left square. Pressing 5 will input 5 into the highlighted box and then remove the highlight from that box. Pressing Escape will deselect any box or square.</p>
+                <br>
+                <label>Show Incorrect Values
+                    <input type="checkbox" id="show_errors">
+                    <span class="checkbox"></span>
+                </label>
+                <p>Values in the wrong spot will be displayed in red</p>
+                <br>
+                <label>Auto Remove Notes
+                    <input type="checkbox" id="auto_remove_notes">
+                    <span class="checkbox"></span>
+                </label>
+                <p>If a value is placed in a box, all notes with that value will be removed if that value can no longer go there.</p>
+                <br>
+            </form><br>
+        </div>
+    </div>
+</body>
+</html>

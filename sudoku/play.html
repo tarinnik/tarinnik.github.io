@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Sudoku</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/play.js"></script>
+</head>
+<body>
+    <div id="header" class="row">
+        <div class="col-12 col-s-12" style="padding-right:0px;padding-left:0px;">
+            <ul class="header">
+                <li class="logo"><a href="index.html"><span class="fancy">Sudoku</span></a></li>
+                <li class="nav"><a href="settings.html"><span class="fancy">Settings</span></a></li>
+                <li class="nav"><a href="statistics.html"><span class="fancy">Statistics</span></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 col-s-12">
+            <h1 id="timer" class="fancy">Time: 0:00</h1>
+            <h2 id="difficulty" class="fancy"></h2>
+        </div>
+        <div class="col-6 col-s-12">
+            <div class="centre">
+                <!-- Game board is created is JS. Uses #game as the root element -->
+                <div id="game" class="container game"></div>
+            </div>
+        </div>
+    </div>
+    
+    <br>
+        <div class="buttons centre">
+            <div class="numbers" id="numbers">
+                <button class="num-button" onclick="numberClicked(1)">1</button>
+                <button class="num-button" onclick="numberClicked(2)">2</button>
+                <button class="num-button" onclick="numberClicked(3)">3</button>
+                <button class="num-button" onclick="numberClicked(4)">4</button>
+                <button class="num-button" onclick="numberClicked(5)">5</button>
+                <button class="num-button" onclick="numberClicked(6)">6</button>
+                <button class="num-button" onclick="numberClicked(7)">7</button>
+                <button class="num-button" onclick="numberClicked(8)">8</button>
+                <button class="num-button" onclick="numberClicked(9)">9</button>
+            </div>
+        </div>
+        <br>
+        <div id="nav" class="centre">
+            <button class="action-button" onclick="undo()">Undo</button>
+            <button class="action-button" onclick="newGame()">New Game</button>
+            <button class="" id="notes" onclick="notesToggle()">Notes</button>
+        </div>
+</body>
+</html>

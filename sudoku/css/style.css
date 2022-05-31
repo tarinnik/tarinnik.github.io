@@ -1,0 +1,284 @@
+/**
+ * The CSS tutorials on w3schools were used in the creation of this stylesheet.
+ * https://www.w3schools.com/css/default.asp
+ * The code was changed to suit my needs, but some of the names are unchanged.
+ */
+
+@font-face {
+    font-family: myFont;
+    src: url(Rounded_Elegance.ttf);
+    /* Sourced from: https://www.dafont.com/rounded-elegance.font?l[]=10&l[]=1 */
+}
+
+body {
+    background-color: #fff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+/* Phones */
+[class*="col-"] {
+    width: 100%;
+}
+
+.header {
+    width: 100%;
+    text-align: center;
+    font-size: 30pt;
+}
+
+.centre {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    margin: 5px;
+    align-content: center;
+}
+
+form {
+    align-content: center;
+    margin: 0 auto;
+}
+
+/* Tablets */
+@media only screen and (min-width: 600px) {
+    .col-s-1 {width: 8.33%;}
+    .col-s-2 {width: 16.66%;}
+    .col-s-3 {width: 25%;}
+    .col-s-4 {width: 33.33%;}
+    .col-s-5 {width: 41.66%;}
+    .col-s-6 {width: 50%;}
+    .col-s-7 {width: 58.33%;}
+    .col-s-8 {width: 66.66%;}
+    .col-s-9 {width: 75%;}
+    .col-s-10 {width: 83.33%;}
+    .col-s-11 {width: 91.66%;}
+    .col-s-12 {width: 100%;}
+}
+
+/* Computers */
+@media only screen and (min-width: 768px) {
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+}
+
+/* Creates the grid */
+.container {
+    display: grid;
+    grid-template-columns: 33.333% 33.333% 33.333%;
+    grid-template-rows: 33.3% 33.3% 33.3%;
+    justify-content: center;
+    border: solid;
+    border-width: 2px;
+}
+
+/* Phones */
+@media only screen and (orientation: portrait) {
+    .game {
+        width:  80vw;
+        height: 80vw;
+    }
+
+    .boxP {
+        margin-top: 45%;
+        margin-bottom: 0px;
+        left: 10px;
+        font-size: 20px;
+    }
+
+    .noteP {
+        font-size: 10px;
+    }
+}
+
+/* Desktops */
+@media only screen and (orientation: landscape) {
+    .game {
+        width: 60vh;
+        height: 60vh;
+        margin-top: 5vh;
+    }
+
+    .boxP {
+        margin-top: 50%;
+        margin-bottom: 0px;
+        left: 18px;
+        font-size: 30px;
+    }
+}
+
+.box {
+    border-width: 1px;
+}
+
+.item {
+    text-align: center;
+}
+
+.highlight {
+    background-color: #88d7fc;
+    color: black;
+}
+
+.notes p {
+    margin-top: 5px;
+    font-size: 10px;
+}
+
+.pCont {
+    position: absolute;
+}
+
+.boxP {
+    position: relative;
+}
+
+.editable {
+    color: blue;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul.header {
+    background-color: #09acf7;
+    margin: 0px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+li.logo {
+    float: left;
+    padding-left: 10px;
+    font-size: 25px;
+    font-family: myFont;
+}
+
+li.nav {
+    float: right;
+    padding-right: 10px;
+    font-size: 20px;
+    font-family: myFont;
+}
+
+.fancy {
+    font-family: myFont;
+}
+
+li a {
+    text-decoration: none;
+    color: black;
+}
+
+.error {
+    color: #bc0508;
+}
+
+.noteP {
+    margin: 0px;
+}
+
+button {
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+
+}
+
+.action-button {
+    background-color: #09acf7;
+    color: white;
+}
+
+.dropdown {
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    text-align: left;
+}
+
+label {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+}
+
+label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #fff;
+    border: solid black;
+    border-width: 1px;
+}
+
+label:hover input ~ .checkbox {
+    background-color: #ccc;
+}
+
+label:hover input:checked ~ .checkbox {
+    background-color: #087baf;
+}
+
+label input:checked ~ .checkbox {
+    background-color: #09acf7;
+}
+
+.checkbox:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+label input:checked ~ .checkmark:after {
+    display: block;
+}
+
+label .checkbox:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    transform: rotate(45deg);
+}
