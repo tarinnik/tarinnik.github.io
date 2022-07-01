@@ -114,7 +114,7 @@ function calculateOrbit(planet, details) {
     planet.setAttribute("cx", x);
     planet.setAttribute("cy", y);
     planet.setAttribute("transform", `rotate(${360 - details.omega}, ${x}, ${y})`);
-    setTimeout(calculateOrbit, 60000 * 15, planet, a, b, rotation, time + 1);
+    setTimeout(calculateOrbit, 60000 * 15, planet, details);
 }
 
 function deg2rad(deg) {
