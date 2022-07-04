@@ -2,7 +2,8 @@ const DATA = {
     "sun": {
         "name": "Sol",
         "colour": "#efd667",
-        "link": "sun.html",
+        "link": "sun",
+        "system": SOLAR_SYSTEM,
     },
     "mercury": {
         "name": "Mercury",
@@ -13,7 +14,7 @@ const DATA = {
         "a": 57.909e6,
         "b": 56671838.62,
         "omega": 0,
-        "link": "mercury.html",
+        "link": "mercury",
     },
     "venus": {
         "name": "Venus",
@@ -24,7 +25,7 @@ const DATA = {
         "a": 108.210e6,
         "b": 108207498.2,
         "omega": 0,
-        "link": "venus.html",
+        "link": "venus",
     },
     "earth": {
         "name": "Earth",
@@ -35,7 +36,8 @@ const DATA = {
         "a": 149.598e6,
         "b": 149577137.9,
         "omega": 0,
-        "link": "earth.html",
+        "link": "earth",
+        "system": TERRAN_SYSTEM
     },
     "luna": {
         "name": "Luna",
@@ -45,7 +47,7 @@ const DATA = {
         "e": 0.0549,
         "a": 0.3884e9,
         "omega": 0,
-        "link": "luna.html",
+        "link": "luna",
     },
     "mars": {
         "name": "Mars",
@@ -56,7 +58,7 @@ const DATA = {
         "a": 227.956e6,
         "b": 226957388.5,
         "omega": 49.57854,
-        "link": "mars.html",
+        "link": "mars",
     },
     "jupiter": {
         "name": "Jupiter",
@@ -66,7 +68,7 @@ const DATA = {
         "e": 0,
         "a": 0,
         "omega": 0,
-        "link": "jupiter.html",
+        "link": "jupiter",
     }
 }
 
