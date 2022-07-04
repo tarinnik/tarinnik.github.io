@@ -7,6 +7,7 @@ function main() {
 function load(page) {
     const canvas = document.getElementById("canvas");
     const overview = new System(DATA[page]);
+    console.log(DATA[page].system);
     overview.addSatellites(DATA[page].system);
     overview.draw(canvas, false);
 }

@@ -56,12 +56,12 @@ class System {
     }
 
     addSatellite(s) {
-        this.satellites.push(new Satellite(s));
+        this.satellites.push(new Satellite(DATA[s]));
     }
 
     addSatellites(ss) {
         for (let i = 0; i < ss.length; i++) {
-            this.satellites.push(new Satellite(ss[i]));
+            this.satellites.push(new Satellite(DATA[ss[i]]));
         }
     }
 
