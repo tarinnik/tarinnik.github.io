@@ -77,6 +77,7 @@ const DATA = {
         "b": 226957388.5,
         "omega": 49.57854,
         "link": "mars",
+        "system": MARTIAN_SYSTEM,
     },
     "phobos": {
         "name": "Phobos",
