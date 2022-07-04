@@ -11,4 +11,5 @@ function load(page) {
     overview.draw(canvas, false);
 }
 
+console.log(DATA);
 main();

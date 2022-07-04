@@ -1,13 +1,5 @@
-const SOLAR_SYSTEM = [
-    DATA.mercury,
-    DATA.venus,
-    DATA.earth,
-    DATA.mars,
-];
-
-const TERRAN_SYSTEM = [
-    DATA.luna,
-];
+let SOLAR_SYSTEM = [];
+let TERRAN_SYSTEM = [];
 
 const DATA = {
     "sun": {
@@ -82,3 +74,14 @@ const DATA = {
         "link": "jupiter",
     }
 }
+
+SOLAR_SYSTEM += [
+    DATA.mercury,
+    DATA.venus,
+    DATA.earth,
+    DATA.mars,
+];
+
+TERRAN_SYSTEM += [
+    DATA.luna,
+];
