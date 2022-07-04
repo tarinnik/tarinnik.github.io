@@ -11,6 +11,11 @@ let TERRAN_SYSTEM = [
     "luna"
 ];
 
+const MARTIAN_SYSTEM = [
+    "phobos",
+    "deimos"
+];
+
 const DATA = {
     "sun": {
         "name": "Sol",
@@ -72,6 +77,26 @@ const DATA = {
         "b": 226957388.5,
         "omega": 49.57854,
         "link": "mars",
+    },
+    "phobos": {
+        "name": "Phobos",
+        "colour": "#525251",
+        "epoch": 1655778625,
+        "degPerDay": 1128.844315,
+        "e": 0.015,
+        "a": 9376,
+        "omega": 0,
+        "link": "phobos",
+    },
+    "deimos": {
+        "name": "Deimos",
+        "colour": "#cdc0af",
+        "epoch": 1655841590,
+        "degPerDay": 285.0356295,
+        "e": 0.00033,
+        "a": 23463.2,
+        "omega": 0,
+        "link": "deimos",
     },
     "jupiter": {
         "name": "Jupiter",
