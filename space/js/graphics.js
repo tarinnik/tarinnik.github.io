@@ -77,9 +77,11 @@ class System {
         this.centre.body.setAttribute("cy", cy);
         canvas.appendChild(this.centre.body);
 
+        let radiusStep = (!accurate) ? cx / (this.satellites.length + 1) : 0;
+
         for (let i = 0; i < this.satellites.length; i++) {
             this.setBodyAttributes(this.satellites[i], SATELLITE_RADIUS);
-            this.setOrbitAttributes(this.satellites[i], cx, cy, accurate);
+            this.setOrbitAttributes(this.satellites[i], cx, cy, accurate, radiusStep, i + 1);
             this.calculateBodyPosition(this.satellites[i], cx, cy, accurate);
             canvas.appendChild(this.satellites[i].orbit);
             canvas.appendChild(this.satellites[i].body);
@@ -97,18 +99,24 @@ class System {
         });
     }
 
-    setOrbitAttributes(s, x, y, accurate) {
+    setOrbitAttributes(s, x, y, accurate, radiusStep, i) {
         let o = s.orbit;
         o.setAttribute("cx", x);
         o.setAttribute("cy", y);
-        o.setAttribute("rx", s.getA() / 1e6);
-        let b = (accurate) ? s.getB() / 1e6 : s.getA() / 1e6;
-        o.setAttribute("ry", b);
         o.setAttribute("stroke", s.getColour());
         o.setAttribute("stroke-width", STROKE_THICKNESS);
         o.setAttribute("stroke-dasharray", ORBIT_DASH_PATTERN);
         o.setAttribute("fill", "none");
-        if (accurate) o.setAttribute("transform", `rotate(${360 - s.getOmega()}, ${x}, ${y})`);
+
+        if (accurate) {
+            o.setAttribute("rx", s.getA() / 1e6);
+            let b = (accurate) ? s.getB() / 1e6 : s.getA() / 1e6;
+            o.setAttribute("ry", b);
+            o.setAttribute("transform", `rotate(${360 - s.getOmega()}, ${x}, ${y})`);
+        } else {
+            o.setAttribute("rx", radiusStep * i);
+            o.setAttribute("ry", radiusStep * i);
+        }
     }
 
     calculateBodyPosition(s, x, y, accurate) {
