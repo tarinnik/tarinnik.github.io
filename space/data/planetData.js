@@ -1,3 +1,14 @@
+const SOLAR_SYSTEM = [
+    DATA.mercury,
+    DATA.venus,
+    DATA.earth,
+    DATA.mars,
+];
+
+const TERRAN_SYSTEM = [
+    DATA.luna,
+];
+
 const DATA = {
     "sun": {
         "name": "Sol",
@@ -71,14 +82,3 @@ const DATA = {
         "link": "jupiter",
     }
 }
-
-const SOLAR_SYSTEM = [
-    DATA.mercury,
-    DATA.venus,
-    DATA.earth,
-    DATA.mars,
-];
-
-const TERRAN_SYSTEM = [
-    DATA.luna,
-];
