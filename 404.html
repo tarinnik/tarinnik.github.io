@@ -3,8 +3,12 @@
 <head>
     <meta charset="utf-8">
     <title>404</title>
-    <script type="text/javascript">
-        if (window.location.href.substring(0, 33) === "https://tarinnik.github.io/space/earth") {
+    <script>
+        let page = window.location.href.substring(0, 33);
+        let target = "https://tarinnik.github.io/space/";
+        console.log(page);
+        console.log(page === target);
+        if (window.location.href.substring(0, 33) === "https://tarinnik.github.io/space/") {
             let page = window.location.href.substring(33);
             window.location = `/space/?s=${page}`;
         }
