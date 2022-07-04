@@ -3,6 +3,7 @@ const SOLAR_SYSTEM = [
     "venus",
     "earth",
     "mars",
+    "jupiter",
 ];
 
 let TERRAN_SYSTEM = [
@@ -74,11 +75,21 @@ const DATA = {
     "jupiter": {
         "name": "Jupiter",
         "colour": "#5c412e",
+        "epoch": 1286740860,
+        "degPerDay": 0.083129,
+        "e": 0.04839266,
+        "a": 778.479e6,
+        "omega": 0,
+        "link": "jupiter",
+    },
+    "saturn": {
+        "name": "Saturn",
+        "colour": "#908160",
         "epoch": 0,
         "degPerDay": 0,
         "e": 0,
         "a": 0,
         "omega": 0,
-        "link": "jupiter",
-    }
+        "link": "saturn",
+    },
 }
