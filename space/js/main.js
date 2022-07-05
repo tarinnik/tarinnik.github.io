@@ -11,9 +11,10 @@ function main() {
 
 function load(page) {
     const canvas = document.getElementById("canvas");
-    const overview = new System(DATA[page]);
-    overview.addSatellites(DATA[page].system);
-    overview.draw(canvas, false);
+    const system = new System(DATA[page]);
+    system.addSatellites(DATA[page].system);
+    system.draw(canvas, false);
+    system.setUpdate(60000 * 1); // update every minute
 }
 
 function capitalise(word) {

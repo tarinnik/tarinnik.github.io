@@ -53,6 +53,9 @@ class System {
     constructor(centreDetails) {
         this.centre = new Satellite(centreDetails);
         this.satellites = [];
+        this.canvas = null;
+        this.accurate = null;
+        this.intervalId = null;
     }
 
     addSatellite(s) {
@@ -66,6 +69,9 @@ class System {
     }
 
     draw(canvas, accurate) {
+        this.canvas = canvas;
+        this.accurate = accurate;
+
         let viewBox = canvas.getAttribute("viewBox").split(" ");
         let width = viewBox[2];
         let height = viewBox[3];
@@ -86,6 +92,26 @@ class System {
             canvas.appendChild(this.satellites[i].orbit);
             canvas.appendChild(this.satellites[i].body);
         }
+    }
+
+    setUpdate(time) {
+        if (time === 0) {
+            this.stopUpdate();
+            return;
+        }
+        if (this.intervalId !== null) {
+            this.stopUpdate();
+        }
+        if (this.canvas === null || this.accurate === null) {
+            console.error("Cannot set update, canvas has not been drawn to.");
+            return;
+        }
+        this.intervalId = setInterval(this.draw.bind(this), time, this.canvas, this.accurate);
+    }
+
+    stopUpdate() {
+        clearInterval(this.intervalId);
+        this.intervalId = null;
     }
 
     setBodyAttributes(s, radius) {
