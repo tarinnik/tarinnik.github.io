@@ -45,7 +45,7 @@
         }
     ],
     "start_url": "/portfolio/index.html",
-    "display": "fullscreen",
+    "display": "standalone",
     "theme_color": "#84d580",
     "background_color": "#121212"
 }
