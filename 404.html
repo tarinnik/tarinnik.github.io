@@ -4,8 +4,13 @@
     <meta charset="utf-8">
     <title>404</title>
     <script>
-        if (window.location.href.substring(0, 33) === "https://tarinnik.github.io/space/") {
-            let page = window.location.href.substring(33);
+        let url = window.location.href;
+        for (let i = 0; i < 3; i++) {
+            let index = url.indexOf('/') + 1;
+            url = url.substring(index);
+        }
+        if (url.substring(0, "space".length) === "space") {
+            let page = url.substring("space".length + 1);
             window.location = `/space/?s=${page}`;
         }
     </script>
