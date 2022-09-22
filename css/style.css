@@ -140,3 +140,22 @@ form.services {
 .hidden {
  display: none;
 }
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.centre {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    color: #efbf58;
+    font-family: monospace;
+    font-size: 50px;
+    margin: 0;
+}
