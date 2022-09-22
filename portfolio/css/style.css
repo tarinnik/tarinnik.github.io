@@ -1,3 +1,116 @@
 body {
     background-color: #121212;
 }
+
+* {
+    box-sizing: border-box;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+/* Phones */
+[class*="col-"] {
+    width: 100%;
+}
+
+/* Tablets */
+@media only screen and (min-width: 600px) {
+    .col-s-1 {width: calc(8.33% - 10px);}
+    .col-s-2 {width: calc(16.66% - 10px);}
+    .col-s-3 {width: calc(25% - 10px);}
+    .col-s-4 {width: calc(33.33% - 10px);}
+    .col-s-5 {width: calc(41.66% - 10px);}
+    .col-s-6 {width: calc(50% - 10px);}
+    .col-s-7 {width: calc(58.33% - 10px);}
+    .col-s-8 {width: calc(66.66% - 10px);}
+    .col-s-9 {width: calc(75% - 10px);}
+    .col-s-10 {width: calc(83.33% - 10px);}
+    .col-s-11 {width: calc(91.66% - 10px);}
+    .col-s-12 {width: calc(100% - 10px);}
+}
+
+/* Computers */
+@media only screen and (min-width: 768px) {
+    .col-1 {width: calc(8.33% - 10px);}
+    .col-2 {width: calc(16.66% - 10px);}
+    .col-3 {width: calc(25% - 10px);}
+    .col-4 {width: calc(33.33% - 10px);}
+    .col-5 {width: calc(41.66% - 10px);}
+    .col-6 {width: calc(50% - 10px);}
+    .col-7 {width: calc(58.33% - 10px);}
+    .col-8 {width: calc(66.66% - 10px);}
+    .col-9 {width: calc(75% - 10px);}
+    .col-10 {width: calc(83.33% - 10px);}
+    .col-11 {width: calc(91.66% - 10px);}
+    .col-12 {width: calc(100% - 10px);}
+}
+
+.container {
+    background-color: #242424;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.nav {
+    background-color: #242424;
+    height: 50px;
+    margin-top: 13px;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 15px;
+    display: grid;
+}
+
+.nav-list {
+    list-style-type: none;
+}
+
+.nav-right {
+    display: flex;
+    justify-content: right;
+
+}
+
+/* Phones */
+@media only screen and (orientation: portrait) {
+    .nav-right {
+        /*display: none;*/
+    }
+}
+
+/* Desktops */
+@media only screen and (orientation: landscape) {
+    .nav-right {
+
+    }
+}
+
+.nav-link {
+    margin-right: 15px;
+}
+
+.text {
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+.vert-centre {
+    align-items: center;
+}
+
+.settings-items {
+    list-style-type: none;
+}

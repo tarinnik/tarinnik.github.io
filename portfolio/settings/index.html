@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Settings</title>
+    <meta name="description" content="View and track your investment portfolio.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="../icons/icon-512.png">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="manifest" href="../portfolio.webmanifest">
+    <script defer src="../js/settings.js"></script>
+    <script src="../js/data.js"></script>
+</head>
+<body>
+    <input id="rapid-api-key">
+    <button onclick="save()">Save</button>
+    <ul id="items" class="settings-items"></ul>
+    <button onclick="addItem()">New</button>
+</body>
+</html>
