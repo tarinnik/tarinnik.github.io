@@ -121,7 +121,7 @@ class System {
         b.setAttribute("stroke-width", STROKE_THICKNESS);
         b.setAttribute("fill", BACKGROUND);
         b.addEventListener("click", () => {
-            window.location = s.getLink();
+            window.location = `/space?s=${s.getLink()}`;
         });
         b.classList.add("clickable");
     }
