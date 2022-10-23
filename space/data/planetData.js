@@ -5,6 +5,8 @@ const SOLAR_SYSTEM = [
     "mars",
     "jupiter",
     "saturn",
+    "uranus",
+    "neptune",
 ];
 
 let TERRAN_SYSTEM = [
@@ -14,6 +16,25 @@ let TERRAN_SYSTEM = [
 const MARTIAN_SYSTEM = [
     "phobos",
     "deimos"
+];
+
+const JUPITER_SYSTEM = [
+    "io",
+    "europa",
+    "ganymede",
+    "callisto",
+];
+
+const SATURN_SYSTEM = [
+
+];
+
+const URANIAN_SYSTEM = [
+
+];
+
+const NEPTUNIAN_SYSTEM = [
+
 ];
 
 const DATA = {
@@ -33,6 +54,7 @@ const DATA = {
         "b": 56671838.62,
         "omega": 0,
         "link": "mercury",
+        "system": [],
     },
     "venus": {
         "name": "Venus",
@@ -44,6 +66,7 @@ const DATA = {
         "b": 108207498.2,
         "omega": 0,
         "link": "venus",
+        "system": [],
     },
     "earth": {
         "name": "Earth",
@@ -55,7 +78,7 @@ const DATA = {
         "b": 149577137.9,
         "omega": 0,
         "link": "earth",
-        "system": TERRAN_SYSTEM
+        "system": TERRAN_SYSTEM,
     },
     "luna": {
         "name": "Luna",
@@ -66,6 +89,7 @@ const DATA = {
         "a": 0.3884e9,
         "omega": 0,
         "link": "luna",
+        "system": [],
     },
     "mars": {
         "name": "Mars",
@@ -88,6 +112,7 @@ const DATA = {
         "a": 9376,
         "omega": 0,
         "link": "phobos",
+        "system": [],
     },
     "deimos": {
         "name": "Deimos",
@@ -98,6 +123,7 @@ const DATA = {
         "a": 23463.2,
         "omega": 0,
         "link": "deimos",
+        "system": [],
     },
     "jupiter": {
         "name": "Jupiter",
@@ -108,6 +134,51 @@ const DATA = {
         "a": 778.479e6,
         "omega": 0,
         "link": "jupiter",
+        "system": JUPITER_SYSTEM,
+    },
+    "io": {
+        "name": "Io",
+        "colour": "#d6ce61",
+        "epoch": 1664978900,
+        "degPerDay": 203.38983050847,
+        "e": 0.00472,
+        "a": 422000,
+        "omega": 0.0375,
+        "link": "io",
+        "system": [],
+    },
+    "europa": {
+        "name": "europa",
+        "colour": "#968865",
+        "epoch": 1665123715,
+        "degPerDay": 101.40845070422,
+        "e": 0.00981,
+        "a": 671000,
+        "omega": 0.462,
+        "link": "europa",
+        "system": [],
+    },
+    "ganymede": {
+        "name": "ganymede",
+        "colour": "#aca192",
+        "epoch": 1665262350,
+        "degPerDay": 50.314465408805,
+        "e": 0.00146,
+        "a": 1070000,
+        "omega": 0.207,
+        "link": "ganymede",
+        "system": [],
+    },
+    "callisto": {
+        "name": "callisto",
+        "colour": "#466351",
+        "epoch": 1665891650,
+        "degPerDay": 21.568509975435,
+        "e": 0.00744,
+        "a": 1883000,
+        "omega": 0.2,
+        "link": "callisto",
+        "system": [],
     },
     "saturn": {
         "name": "Saturn",
@@ -118,5 +189,28 @@ const DATA = {
         "a": 1432.041e6,
         "omega": 0,
         "link": "saturn",
+        "system": SATURN_SYSTEM,
     },
+    "uranus": {
+        "name": "Uranus",
+        "colour": "#68d3e5",
+        "epoch": 1297609400,
+        "degPerDay": 0.01176904,
+        "e": 0.04717,
+        "a": 2.870972e9,
+        "omega": 0,
+        "link": "uranus",
+        "system": URANIAN_SYSTEM,
+    },
+    "neptune": {
+        "name": "Neptune",
+        "colour": "#3164a7",
+        "epoch": -3447358120,
+        "degPerDay": 0.006020076,
+        "e": 0.008678,
+        "a": 4.5e9,
+        "omega": 0,
+        "link": "neptune",
+        "system": NEPTUNIAN_SYSTEM,
+    }
 }
