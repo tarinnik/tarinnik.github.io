@@ -13,3 +13,7 @@ body {
 .hidden {
     visibility: hidden;
 }
+
+.clickable:hover {
+    cursor: pointer;
+}

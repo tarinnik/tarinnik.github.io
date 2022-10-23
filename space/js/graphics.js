@@ -64,7 +64,7 @@ class System {
 
     addSatellites(ss) {
         for (let i = 0; i < ss.length; i++) {
-            this.satellites.push(new Satellite(DATA[ss[i]]));
+            this.addSatellite(ss[i]);
         }
     }
 
@@ -123,6 +123,7 @@ class System {
         b.addEventListener("click", () => {
             window.location = s.getLink();
         });
+        b.classList.add("clickable");
     }
 
     setOrbitAttributes(s, x, y, accurate, radiusStep, i) {
