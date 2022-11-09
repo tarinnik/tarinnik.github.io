@@ -10,6 +10,7 @@ class Satellite {
         this.details = details;
         this.body = document.createElementNS(SVGNS, "circle");
         this.orbit = document.createElementNS(SVGNS, "ellipse");
+        this.rotateIndicator = document.createElementNS(SVGNS, "rectangle")
     }
 
     getName() {
@@ -94,6 +95,25 @@ class System {
         }
     }
 
+    setParentDot(parent) {
+        let time = Math.floor(Date.now() / 1e3) - this.centre.getEpoch();
+        let days = time / 60 / 60 / 24;
+        let deg = (this.centre.getDegPerDay() * days - 180) % 360;
+        let theta = deg2rad(deg);
+        let cx = 445 * Math.cos(theta) + parseFloat(this.centre.body.getAttribute("cx"));
+        let cy = 445 * -Math.sin(theta) + parseFloat(this.centre.body.getAttribute("cy"));
+
+        console.log("YEP");
+
+        let parentDot = document.createElementNS(SVGNS, "circle");
+        parentDot.setAttribute("r", 3);
+        parentDot.setAttribute("cx", cx);
+        parentDot.setAttribute("cy", cy);
+        parentDot.setAttribute("fill", parent.colour);
+
+        this.canvas.appendChild(parentDot);
+    }
+
     setUpdate(time) {
         if (time === 0) {
             this.stopUpdate();
@@ -156,6 +176,10 @@ class System {
         s.body.setAttribute("cx", cx);
         s.body.setAttribute("cy", cy);
         if (accurate) s.body.setAttribute("transform", `rotate(${360 - s.getOmega()}, ${x}, ${y})`);
+    }
+
+    calculateOrbitIndicatorPosition() {
+        
     }
 }
 

@@ -18,7 +18,7 @@ const MARTIAN_SYSTEM = [
     "deimos"
 ];
 
-const JUPITER_SYSTEM = [
+const JOVIAN_SYSTEM = [
     "io",
     "europa",
     "ganymede",
@@ -38,10 +38,10 @@ const NEPTUNIAN_SYSTEM = [
 ];
 
 const DATA = {
-    "sun": {
+    "sol": {
         "name": "Sol",
         "colour": "#efd667",
-        "link": "sun",
+        "link": "sol",
         "system": SOLAR_SYSTEM,
     },
     "mercury": {
@@ -55,6 +55,7 @@ const DATA = {
         "omega": 0,
         "link": "mercury",
         "system": [],
+        "parent": "sol",
     },
     "venus": {
         "name": "Venus",
@@ -67,6 +68,7 @@ const DATA = {
         "omega": 0,
         "link": "venus",
         "system": [],
+        "parent": "sol",
     },
     "earth": {
         "name": "Earth",
@@ -79,6 +81,7 @@ const DATA = {
         "omega": 0,
         "link": "earth",
         "system": TERRAN_SYSTEM,
+        "parent": "sol",
     },
     "luna": {
         "name": "Luna",
@@ -90,6 +93,7 @@ const DATA = {
         "omega": 0,
         "link": "luna",
         "system": [],
+        "parent": "earth",
     },
     "mars": {
         "name": "Mars",
@@ -102,6 +106,7 @@ const DATA = {
         "omega": 49.57854,
         "link": "mars",
         "system": MARTIAN_SYSTEM,
+        "parent": "sol",
     },
     "phobos": {
         "name": "Phobos",
@@ -113,6 +118,7 @@ const DATA = {
         "omega": 0,
         "link": "phobos",
         "system": [],
+        "parent": "mars",
     },
     "deimos": {
         "name": "Deimos",
@@ -124,6 +130,7 @@ const DATA = {
         "omega": 0,
         "link": "deimos",
         "system": [],
+        "parent": "mars",
     },
     "jupiter": {
         "name": "Jupiter",
@@ -134,7 +141,8 @@ const DATA = {
         "a": 778.479e6,
         "omega": 0,
         "link": "jupiter",
-        "system": JUPITER_SYSTEM,
+        "system": JOVIAN_SYSTEM,
+        "parent": "sol",
     },
     "io": {
         "name": "Io",
@@ -146,6 +154,7 @@ const DATA = {
         "omega": 0.0375,
         "link": "io",
         "system": [],
+        "parent": "jupiter",
     },
     "europa": {
         "name": "europa",
@@ -157,6 +166,7 @@ const DATA = {
         "omega": 0.462,
         "link": "europa",
         "system": [],
+        "parent": "jupiter",
     },
     "ganymede": {
         "name": "ganymede",
@@ -168,6 +178,7 @@ const DATA = {
         "omega": 0.207,
         "link": "ganymede",
         "system": [],
+        "parent": "jupiter",
     },
     "callisto": {
         "name": "callisto",
@@ -179,6 +190,7 @@ const DATA = {
         "omega": 0.2,
         "link": "callisto",
         "system": [],
+        "parent": "jupiter",
     },
     "saturn": {
         "name": "Saturn",
@@ -190,6 +202,7 @@ const DATA = {
         "omega": 0,
         "link": "saturn",
         "system": SATURN_SYSTEM,
+        "parent": "sol",
     },
     "uranus": {
         "name": "Uranus",
@@ -201,6 +214,7 @@ const DATA = {
         "omega": 0,
         "link": "uranus",
         "system": URANIAN_SYSTEM,
+        "parent": "sol",
     },
     "neptune": {
         "name": "Neptune",
@@ -212,5 +226,6 @@ const DATA = {
         "omega": 0,
         "link": "neptune",
         "system": NEPTUNIAN_SYSTEM,
+        "parent": "sol",
     }
 }
