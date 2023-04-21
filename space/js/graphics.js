@@ -96,6 +96,10 @@ class System {
     }
 
     setParentDot(parent) {
+        if (parent === undefined) {
+            return;
+        }
+
         let time = Math.floor(Date.now() / 1e3) - this.centre.getEpoch();
         let days = time / 60 / 60 / 24;
         let deg = (this.centre.getDegPerDay() * days - 180) % 360;
