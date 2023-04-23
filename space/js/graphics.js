@@ -107,8 +107,6 @@ class System {
         let cx = 445 * Math.cos(theta) + parseFloat(this.centre.body.getAttribute("cx"));
         let cy = 445 * -Math.sin(theta) + parseFloat(this.centre.body.getAttribute("cy"));
 
-        console.log("YEP");
-
         let parentDot = document.createElementNS(SVGNS, "circle");
         parentDot.setAttribute("r", 3);
         parentDot.setAttribute("cx", cx);
