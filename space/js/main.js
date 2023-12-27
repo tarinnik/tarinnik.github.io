@@ -15,6 +15,7 @@ function load(page) {
         var body = DATA[page];
         var system = new System(body);
         system.draw(false);
+        system.setUpdate(60000 * 1);
     }
 }
 function capitalise(word) {
