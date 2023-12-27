@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>Space</title>
     <meta name="description" content="View planetary, moon and other space object positions.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="data/planetData.js"></script>
-    <script src="js/graphics.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/draw.js"></script>
     <script src="js/main.js" defer></script>
 </head>
+
 <body>
+    <div>
+        <div class="centre">
+            <p id="title"></p>
+        </div>
+    </div>
     <svg id="canvas" viewBox="0 0 1000 1000"></svg>
 </body>
+
 </html>
