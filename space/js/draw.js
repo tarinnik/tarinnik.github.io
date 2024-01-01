@@ -22,7 +22,9 @@ var System = (function () {
         this.centre = new Satellite(details);
         this.canvas = document.getElementById("canvas");
         this.rotationIndicator = document.createElementNS(SVGNS, "rect");
+        this.parentDot = document.createElementNS(SVGNS, "circle");
         this.addSatellites(details.system);
+        this.canvas.appendChild(this.parentDot);
     }
     System.prototype.addSatellite = function (s) {
         this.satellites.push(new Satellite(DATA[s]));
@@ -105,12 +107,10 @@ var System = (function () {
         var theta = deg2rad(deg);
         var cx = 445 * Math.cos(theta) + parseFloat(this.centre.body.getAttribute("cx"));
         var cy = 445 * -Math.sin(theta) + parseFloat(this.centre.body.getAttribute("cy"));
-        var parentDot = document.createElementNS(SVGNS, "circle");
-        parentDot.setAttribute("r", "5");
-        parentDot.setAttribute("cx", cx.toString());
-        parentDot.setAttribute("cy", cy.toString());
-        parentDot.setAttribute("fill", parent.colour);
-        this.canvas.appendChild(parentDot);
+        this.parentDot.setAttribute("r", "5");
+        this.parentDot.setAttribute("cx", cx.toString());
+        this.parentDot.setAttribute("cy", cy.toString());
+        this.parentDot.setAttribute("fill", parent.colour);
     };
     System.prototype.setUpdate = function (time) {
         if (this.intervalId !== null) {
