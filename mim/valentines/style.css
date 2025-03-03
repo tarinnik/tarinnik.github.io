@@ -2,21 +2,6 @@ body {
     background: pink;
 }
 
-p {
-    font-size: 48px;
-}
-
-.charm-regular {
-  font-family: "Charm", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.charm-bold {
-  font-family: "Charm", serif;
-  font-weight: 700;
-  font-style: normal;
-}
 
 .centre {
     display: flex;
