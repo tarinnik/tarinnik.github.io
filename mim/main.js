@@ -1,4 +1,4 @@
-const land = 1741988640;
+const land = 1741984380;
 
 function main() {
     calculate();
