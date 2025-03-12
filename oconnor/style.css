@@ -1,7 +1,6 @@
 body {
-    background: grey;
+    background: #d4c6b6;
 }
-
 
 .centre {
     display: flex;
@@ -10,26 +9,8 @@ body {
     align-items: center;
 }
 
-input {
-    background-color: pink;
-    height: 60px;
-    width: 550px;
-    padding: 15px;
-    font-size: 20px;
-}
-
 .block {
     display: block;
-}
-
-button {
-    background-color: pink;
-    padding: 5px;
-    font-size: 16px;
-}
-
-button:hover {
-    cursor: pointer;
 }
 
 .border {
@@ -37,3 +18,14 @@ button:hover {
     border-color: black;
     border-radius: 25px;
 }
+
+.wide {
+    width: 400px;
+}
+
+input {
+    margin-bottom: 15px;
+    margin-right: 10px;
+    transform: scale(1.5);
+}
+

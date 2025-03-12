@@ -5,16 +5,265 @@
     <meta charset="utf-8">
     <title>Where's O'Connor?</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
     <script src="main.js" defer></script>
 </head>
-<body>
+<body width="500px">
     <div class="centre">
-        <div style="display:block;">
-            <div class="centre">
-                <h1>Where's O'Connor?</h1>
+        <div class="wide">
+            <div style="display:block;">
+                <div class="centre">
+                    <h1>Where's O'Connor?</h1>
+                </div>
+                <div class="centre">
+                    <img src="oconnor_poster.png" width="300px"/>
+                </div>
+                <br>
+                <p>To find O'Connor, you must first answer these questions. Each question will give you a clue to where he is playing.</p>
+
+                <h4>Question 1</h4>
+                <form>
+                    <fieldset>
+                        <legend> In what class does Bella sit next to Edward on the first day of school?</legend>
+                        <div>
+                            <input type="radio" id="q1c1" name="q1" value="q1c1"/>
+                            <label for="q1c1">Maths</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q1c2" name="q1" value="q1c2"/>
+                            <label for="q1c2">Chemistry</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q1c3" name="q1" value="q1c3"/>
+                            <label for="q1c3">Biology</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q1c4" name="q1" value="q1c4"/>
+                            <label for="q1c4">English</label>
+                        </div>
+                        <div>
+                            <button id="q1b" type="button">Submit</button>
+                        </div>
+                    </fieldset>
+                </form>
+                <p id="q1r"></p>
+
+                <h4>Question 2</h4>
+                <form>
+                    <fieldset>
+                        <legend>Who was Tara's first friend at the National Academy of Dance?</legend>
+                        <div>
+                            <input type="radio" id="q2c1" name="q2" value="q2c1"/>
+                            <label for="q2c1">Christian</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q2c2" name="q2" value="q2c2"/>
+                            <label for="q2c2">Kat</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q2c3" name="q2" value="q2c3"/>
+                            <label for="q2c3">Sammy</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q2c4" name="q2" value="q2c4"/>
+                            <label for="q2c4">Abigail</label>
+                        </div>
+                        <div>
+                            <button id="q2b" type="button">Submit</button>
+                        </div>
+                    </fieldset>
+                </form>
+                <p id="q2r"></p>
+
+                <h4>Question 3</h4>
+                <form>
+                    <fieldset>
+                        <legend>In how many parts was the flaming sword in Lucifer divided?</legend>
+                        <div>
+                            <input type="radio" id="q3c1" name="q3" value="q3c1"/>
+                            <label for="q3c1">Two</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q3c2" name="q3" value="q3c2"/>
+                            <label for="q3c2">Three</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q3c3" name="q3" value="q3c3"/>
+                            <label for="q3c3">Four</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q3c4" name="q3" value="q3c4"/>
+                            <label for="q3c4">Five</label>
+                        </div>
+                        <div>
+                            <button id="q3b" type="button">Submit</button>
+                        </div>
+                    </fieldset>
+                </form>
+                <p id="q3r"></p>
+
+                <h4>Question 4</h4>
+                <form>
+                    <fieldset>
+                        <legend>How many adopted Cullen children are there?</legend>
+                        <div>
+                            <input type="radio" id="q4c1" name="q4" value="q4c1"/>
+                            <label for="q4c1">Three</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q4c2" name="q4" value="q4c2"/>
+                            <label for="q4c2">Five</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q4c3" name="q4" value="q4c3"/>
+                            <label for="q4c3">Nine</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q4c4" name="q4" value="q4c4"/>
+                            <label for="q4c4">Four</label>
+                        </div>
+                        <div>
+                            <button id="q4b" type="button">Submit</button>
+                        </div>
+                    </fieldset>
+                </form>
+                <p id="q4r"></p>
+
+                <h4>Question 5</h4>
+                <form>
+                    <fieldset>
+                        <legend>Which character stars in a dance film in season 3?</legend>
+                        <div>
+                            <input type="radio" id="q5c1" name="q5" value="q5c1"/>
+                            <label for="q5c1">Tara</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q5c2" name="q5" value="q5c2"/>
+                            <label for="q5c2">Christian</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q5c3" name="q5" value="q5c3"/>
+                            <label for="q5c3">Abigail</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q5c4" name="q5" value="q5c4"/>
+                            <label for="q5c4">Kat</label>
+                        </div>
+                        <div>
+                            <button id="q5b" type="button">Submit</button>
+                        </div>
+                    </fieldset>
+                </form>
+                <p id="q5r"></p>
+
+                <h4>Question 6</h4>
+                <form>
+                    <fieldset>
+                        <legend>What part of Bella is bitten by James, prompting Edward to suck the poison out? </legend>
+                        <div>
+                            <input type="radio" id="q6c1" name="q6" value="q6c1"/>
+                            <label for="q6c1">Her wrist</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q6c2" name="q6" value="q6c2"/>
+                            <label for="q6c2">Her foot</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q6c3" name="q6" value="q6c3"/>
+                            <label for="q6c3">Her neck</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q6c4" name="q6" value="q6c4"/>
+                            <label for="q6c4">Her waist</label>
+                        </div>
+                        <div>
+                            <button id="q6b" type="button">Submit</button>
+                        </div>
+                    </fieldset>
+                </form>
+                <p id="q6r"></p>
+
+                <h4>Question 7</h4>
+                <form>
+                    <fieldset>
+                        <legend>What car does Lucifer have?</legend>
+                        <div>
+                            <input type="radio" id="q7c1" name="q7" value="q7c1"/>
+                            <label for="q7c1">Mercedes</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q7c2" name="q7" value="q7c2"/>
+                            <label for="q7c2">Dodge</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q7c3" name="q7" value="q7c3"/>
+                            <label for="q7c3">Lamborghini</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q7c4" name="q7" value="q7c4"/>
+                            <label for="q7c4">Corvette</label>
+                        </div>
+                        <div>
+                            <button id="q7b" type="button">Submit</button>
+                        </div>
+                    </fieldset>
+                </form>
+                <p id="q7r"></p>
+
+                <h4>Question 8</h4>
+                <form>
+                    <fieldset>
+                        <legend>What is the name of the male dance teacher is Season 1?</legend>
+                        <div>
+                            <input type="radio" id="q8c1" name="q8" value="q8c1"/>
+                            <label for="q8c1">Zach</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q8c2" name="q8" value="q8c2"/>
+                            <label for="q8c2">Matt</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q8c3" name="q8" value="q8c3"/>
+                            <label for="q8c3">Patrick</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q8c4" name="q8" value="q8c4"/>
+                            <label for="q8c4">James</label>
+                        </div>
+                        <div>
+                            <button id="q8b" type="button">Submit</button>
+                        </div>
+                    </fieldset>
+                </form>
+                <p id="q8r"></p>
+
+                <h4>Question 9</h4>
+                <form>
+                    <fieldset>
+                        <legend>What is Trixie's real name?</legend>
+                        <div>
+                            <input type="radio" id="q9c1" name="q9" value="q9c1"/>
+                            <label for="q9c1">Tricia</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q9c2" name="q9" value="q9c2"/>
+                            <label for="q9c2">Beatta</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q9c3" name="q9" value="q9c3"/>
+                            <label for="q9c3">Beatrice</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="q9c4" name="q9" value="q9c4"/>
+                            <label for="q9c4">Trixie is her real name.</label>
+                        </div>
+                        <div>
+                            <button id="q9b" type="button">Submit</button>
+                        </div>
+                    </fieldset>
+                </form>
+                <p id="q9r"></p>
             </div>
-            <img src="oconnor_poster.png"/>
         </div>
     </div>
 </body>
