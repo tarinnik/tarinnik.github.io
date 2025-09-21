@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Scavenger Hunt Registration</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <input id="teamName" />
+    <button onclick="register()">Register</button>
+
+    <script>
+        function register() {
+            let name = document.getElementById("teamName").value;
+            localStorage.setItem("teamName", name);
+            window.location.href = "/";
+        }
+    </script>
+</body>
+
+</html>

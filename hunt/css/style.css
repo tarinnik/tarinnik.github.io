@@ -1,0 +1,31 @@
+#map {
+    width: 100%;
+    height: 65vh;
+}
+
+body {
+    display: block;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-top: 10px;
+    column-gap: 10px;
+}
+
+.center {
+    text-align: center;
+}
+
+
+#leaderboard-container {
+    background-color: rgb(232, 218, 221);
+    border-radius: 10px;
+}
+
+#notification-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
