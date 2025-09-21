@@ -1,5 +1,7 @@
 const DUCK_ICONS = {};
 const SCORES = {};
+const NEAR_DUCKS = [];
+const MAX_DISTANCE_FROM_DUCK = 50;
 
 let map = null;
 let locationMarker = null;
@@ -102,14 +104,18 @@ function checkIfCloseToMarker(location) {
     let lon1 = location.coords.longitude;
 
     for (let i = 0; i < DUCKS.length; i++) {
-        if (DUCKS_FOUND.includes(DUCKS[i].id)) {
-            continue;
-        }
+        let id = DUCKS[i].id;
 
         let distance = getDistanceFromLatLonInKm(lat1, lon1, DUCKS[i].coords[0], DUCKS[i].coords[1]) * 1000;
         console.log(`${distance} km`);
-        if (distance <= 50) {
-            alert("You're close!");
+        if (distance <= MAX_DISTANCE_FROM_DUCK) {
+            if (!NEAR_DUCKS.includes(id)) {
+                NEAR_DUCKS.push(id);
+                setTimeout(() => { displayQuestion(DUCKS[i]) }, 1000);
+            }
+        } else if (NEAR_DUCKS.includes(id)) {
+            let index = NEAR_DUCKS.indexOf(id);
+            NEAR_DUCKS.splice(index, 1);
         }
     }
 }
@@ -130,4 +136,8 @@ function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
 
 function deg2rad(deg) {
     return deg * (Math.PI / 180)
+}
+
+function displayQuestion(duck) {
+    alert(duck.riddle);
 }
