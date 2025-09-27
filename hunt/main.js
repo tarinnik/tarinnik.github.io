@@ -1,6 +1,9 @@
 const DUCK_ICONS = {};
 const SCORES = {};
 const NEAR_DUCKS = [];
+const RIDDLES_USED = [];
+const DUCK_RIDDLES_USED = [];
+
 const MAX_DISTANCE_FROM_DUCK = 50;
 
 let map = null;
@@ -13,7 +16,9 @@ function setup() {
     checkRegistration();
     setupMap();
     getMessages(messageReceived);
-    navigator.geolocation.watchPosition(locationUpdate);
+    setTimeout(() => {
+        navigator.geolocation.watchPosition(locationUpdate);
+    }, 5000);
 }
 
 function checkRegistration() {
@@ -39,21 +44,36 @@ function setupMap() {
 function messageReceived(msg) {
     console.log("From main: ", msg);
 
+    let score = 0;
+    let message = "";
+
     if (msg.type === "duck_found") {
         let icon = DUCK_ICONS[msg.id];
         if (icon !== null || icon !== undefined) {
             icon.remove();
         }
-
-        if (SCORES[msg.team] === undefined) {
-            SCORES[msg.team] = 0;
-        }
-
-        SCORES[msg.team] += 1;
-
-        displayLeaderboard();
-        setNotification(`${msg.team} just found a duck!`);
+        score = 2;
+        message = `${msg.team} just found a duck!`
+    } else if (msg.type === "riddle_success") {
+        RIDDLES_USED.push(msg.riddleId);
+        DUCK_RIDDLES_USED.push(msg.duckId);
+        score = 1;
+        message = `${msg.team} got a riddle correct!`;
+    } else if (msg.type === "riddle_failure") {
+        RIDDLES_USED.push(msg.riddleId);
+        DUCK_RIDDLES_USED.push(msg.duckId);
+        message = `${msg.team} got a riddle wrong`;
+    } else {
+        return;
     }
+
+    if (SCORES[msg.team] === undefined) {
+        SCORES[msg.team] = 0;
+    }
+    SCORES[msg.team] += score;
+
+    displayLeaderboard();
+    setNotification(message);
 }
 
 function setNotification(message) {
@@ -109,9 +129,9 @@ function checkIfCloseToMarker(location) {
         let distance = getDistanceFromLatLonInKm(lat1, lon1, DUCKS[i].coords[0], DUCKS[i].coords[1]) * 1000;
         console.log(`${distance} km`);
         if (distance <= MAX_DISTANCE_FROM_DUCK) {
-            if (!NEAR_DUCKS.includes(id)) {
+            if (!DUCK_RIDDLES_USED.includes(id) && !NEAR_DUCKS.includes(id)) {
                 NEAR_DUCKS.push(id);
-                setTimeout(() => { displayQuestion(DUCKS[i]) }, 1000);
+                setTimeout(() => { displayQuestion(id) }, 1000);
             }
         } else if (NEAR_DUCKS.includes(id)) {
             let index = NEAR_DUCKS.indexOf(id);
@@ -138,6 +158,65 @@ function deg2rad(deg) {
     return deg * (Math.PI / 180)
 }
 
-function displayQuestion(duck) {
-    alert(duck.riddle);
+function displayQuestion(duckId) {
+    let riddle = RIDDLES[0];
+
+    let riddleQuestion = document.getElementById("riddle-question");
+    riddleQuestion.innerText = riddle.riddle;
+
+    // Answers
+    let answers = document.getElementById("riddle-answers");
+    for (var i = 0; i < riddle.riddleAnswerOptions.length; i++) {
+        let isCorrect = riddle.riddleAnswer == i;
+        let element = createRiddleAnswer(riddle.riddleAnswerOptions[i], riddle.id, duckId, isCorrect);
+        answers.appendChild(element);
+    }
+
+    document.getElementById("myPopup").classList.toggle("show");
+}
+
+function createRiddleAnswer(text, riddleId, duckId, isCorrect) {
+    let answer = document.createElement("p");
+    answer.innerText = text;
+    answer.className = "riddle-answer";
+
+    let clickFn = (isCorrect) ? riddleCorrect : riddleIncorrect;
+    answer.onclick = () => {
+        clickFn(riddleId, duckId);
+        resetRiddle();
+    }
+
+    return answer;
+}
+
+/**
+ * 
+ * @param {string} riddleId 
+ * @param {string} duckId 
+ */
+function riddleCorrect(riddleId, duckId) {
+    let message = createRiddleDoneMessage(riddleId, duckId, true)
+    sendMessage(message);
+
+    let riddleQuestion = document.getElementById("riddle-question");
+    riddleQuestion.innerText = "Yay, you got it right!"
+}
+
+function riddleIncorrect(riddleId, duckId) {
+    let message = createRiddleDoneMessage(riddleId, duckId, false)
+    sendMessage(message);
+
+    let riddleQuestion = document.getElementById("riddle-question");
+    riddleQuestion.innerText = "Boo, you got it wrong!";
+}
+
+function resetRiddle() {
+    let answers = document.getElementById("riddle-answers");
+    setTimeout(() => {
+        document.getElementById("myPopup").classList.toggle("show");
+    }, 5000);
+
+    while (answers.firstChild) {
+        answers.removeChild(answers.lastChild);
+    }
 }

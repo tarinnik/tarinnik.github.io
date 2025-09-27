@@ -7,6 +7,7 @@
     <title>Scavenger Hunt</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="duckData.js"></script>
+    <script src="riddleData.js"></script>
     <script src="messages.js"></script>
     <script src="main.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -17,6 +18,12 @@
 
 <body>
     <div id="map"></div>
+    <div class="popup-container">
+        <div class="popup" id="myPopup">
+            <h3 id="riddle-question"></h3>
+            <div class="container" id="riddle-answers"> </div>
+        </div>
+    </div>
     <div class="container">
         <div id="leaderboard-container">
             <p class="center">Leaderboard</p>

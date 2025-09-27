@@ -1,4 +1,4 @@
-const TOPIC = "51ULzENMpv5Kbwo4pEY3eSLfj7RvQJMFwLaJjTbE4CmkAjREgm";
+const TOPIC = "51ULzENMpv5Kbwo4pEYdeSLfj7RvQJMFwLaJjTbE4CmkAjREgm";
 const DUCKS_FOUND = [];
 
 let eventFn = null;
@@ -30,6 +30,30 @@ function createDuckFoundMessage(duckid) {
     let message = {
         "type": "duck_found",
         "id": duckid,
+        "team": team,
+    };
+    return JSON.stringify(message);
+}
+
+/**
+ * Creates a riddle done message
+ * @param {string} riddleId the id of the riddle
+ * @param {bool} success if the riddle was answered correctly
+ * @returns 
+ */
+function createRiddleDoneMessage(riddleId, duckId, success) {
+    let team = localStorage.getItem("teamName");
+    if (team === null) {
+        window.location.href = "register.html";
+        return "";
+    }
+
+    let type = (success) ? "riddle_success" : "riddle_fail";
+
+    let message = {
+        "type": type,
+        "riddleId": riddleId,
+        "duckId": duckId,
         "team": team,
     };
     return JSON.stringify(message);
