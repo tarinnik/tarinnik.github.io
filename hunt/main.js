@@ -4,7 +4,7 @@ const NEAR_DUCKS = [];
 const RIDDLES_USED = [];
 const DUCK_RIDDLES_USED = [];
 
-const MAX_DISTANCE_FROM_DUCK = 50;
+const MAX_DISTANCE_FROM_DUCK = 10;
 
 let map = null;
 let locationMarker = null;
