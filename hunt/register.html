@@ -3,19 +3,24 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Scavenger Hunt Registration</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
-<body>
-    <input id="teamName" />
-    <button onclick="register()">Register</button>
+<body class="register-body">
+    <div class="register-card">
+        <h3 class="dark-mode no-margin">Mim's Scavanger Hunt Registration</h3>
+        <p class="dark-mode">Please register your team name:</p>
+        <input id="teamName" />
+        <button onclick="register()">Register</button>
+    </div>
 
     <script>
         function register() {
             let name = document.getElementById("teamName").value;
             localStorage.setItem("teamName", name);
-            window.location.href = "/";
+            window.location.href = "/hunt";
         }
     </script>
 </body>
