@@ -46,6 +46,11 @@ function messageReceived(msg) {
 
     let score = 0;
     let message = "";
+    let thisTeam = localStorage.getItem("teamName");
+    if (team === null) {
+        window.location.href = "register.html";
+        return;
+    }
 
     if (msg.type === "duck_found") {
         let icon = DUCK_ICONS[msg.id];
@@ -56,12 +61,16 @@ function messageReceived(msg) {
         message = `${msg.team} just found a duck!`
     } else if (msg.type === "riddle_success") {
         RIDDLES_USED.push(msg.riddleId);
-        DUCK_RIDDLES_USED.push(msg.duckId);
+        if (msg.team === thisTeam) {
+            DUCK_RIDDLES_USED.push(msg.duckId);
+        }
         score = 1;
         message = `${msg.team} got a riddle correct!`;
     } else if (msg.type === "riddle_failure") {
         RIDDLES_USED.push(msg.riddleId);
-        DUCK_RIDDLES_USED.push(msg.duckId);
+        if (msg.team === thisTeam) {
+            DUCK_RIDDLES_USED.push(msg.duckId);
+        }
         message = `${msg.team} got a riddle wrong`;
     } else {
         return;
