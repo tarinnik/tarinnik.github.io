@@ -60,6 +60,27 @@ function createRiddleDoneMessage(riddleId, duckId, success) {
 }
 
 /**
+ * Creates and sends an overriding notification that displays over others
+ * @param {string} message the message to send
+ */
+function createMasterNotification(message) {
+    let msg = {
+        "type": "master_notification",
+        "message": message,
+    };
+
+    sendMessage(JSON.stringify(msg));
+}
+
+function clearMasterNotification() {
+    let message = {
+        "type": "clear_notification",
+    };
+
+    sendMessage(JSON.stringify(message));
+}
+
+/**
  * Sends a message to ntfy
  * @param {String} message the message to send
  */

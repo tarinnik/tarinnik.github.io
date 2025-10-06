@@ -4,11 +4,14 @@ const NEAR_DUCKS = [];
 const RIDDLES_USED = [];
 const DUCK_RIDDLES_USED = [];
 
-const MAX_DISTANCE_FROM_DUCK = 10;
+const MAX_DISTANCE_FROM_DUCK = 100;
 
 let map = null;
 let locationMarker = null;
 let notificationTimer = null;
+
+let masterNotication = false;
+let lastNotification = "";
 
 addEventListener("load", (_event) => { setup() })
 
@@ -45,56 +48,86 @@ function messageReceived(msg) {
     console.log("From main: ", msg);
 
     let score = 0;
-    let message = "";
+    let message = null
+
+    switch (msg.type) {
+        case "duck_found":
+            duckFound(msg);
+            score = 2;
+            message = `${msg.team} just found a duck!`
+            break;
+        case "riddle_success":
+            riddleDone(msg);
+            score = 1;
+            message = `${msg.team} got a riddle correct!`;
+            break;
+        case "riddle_failure":
+            riddleDone(msg);
+            message = `${msg.team} got a riddle wrong`;
+            break;
+        case "master_notification":
+            setMasterNotification(msg.message);
+            break;
+        case "clear_notification":
+            clearMasterNotification();
+            break;
+        default:
+            return;
+    }
+
+    if (msg.team) {
+        if (!SCORES[msg.team]) {
+            SCORES[msg.team] = 0;
+        }
+        SCORES[msg.team] += score;
+    }
+
+    displayLeaderboard();
+
+    if (message) {
+        setNotification(message);
+    }
+}
+
+function duckFound(msg) {
+    let icon = DUCK_ICONS[msg.id];
+    if (icon !== null || icon !== undefined) {
+        icon.remove();
+    }
+}
+
+function riddleDone(msg) {
     let thisTeam = localStorage.getItem("teamName");
-    if (team === null) {
+    if (thisTeam === null) {
         window.location.href = "register.html";
         return;
     }
 
-    if (msg.type === "duck_found") {
-        let icon = DUCK_ICONS[msg.id];
-        if (icon !== null || icon !== undefined) {
-            icon.remove();
-        }
-        score = 2;
-        message = `${msg.team} just found a duck!`
-    } else if (msg.type === "riddle_success") {
-        RIDDLES_USED.push(msg.riddleId);
-        if (msg.team === thisTeam) {
-            DUCK_RIDDLES_USED.push(msg.duckId);
-        }
-        score = 1;
-        message = `${msg.team} got a riddle correct!`;
-    } else if (msg.type === "riddle_failure") {
-        RIDDLES_USED.push(msg.riddleId);
-        if (msg.team === thisTeam) {
-            DUCK_RIDDLES_USED.push(msg.duckId);
-        }
-        message = `${msg.team} got a riddle wrong`;
-    } else {
-        return;
+    RIDDLES_USED.push(msg.riddleId);
+    if (msg.team === thisTeam) {
+        DUCK_RIDDLES_USED.push(msg.duckId);
     }
-
-    if (SCORES[msg.team] === undefined) {
-        SCORES[msg.team] = 0;
-    }
-    SCORES[msg.team] += score;
-
-    displayLeaderboard();
-    setNotification(message);
 }
 
 function setNotification(message) {
+    lastNotification = message;
+
+    if (!masterNotication) {
+        document.getElementById("notification").innerText = message;
+    }
+}
+
+function setMasterNotification(message) {
+    vibrate();
+    masterNotication = true;
     document.getElementById("notification").innerText = message;
+    document.getElementById("notification-container").classList.add("master-notification");
+}
 
-    // if (notificationTimer !== null) {
-    //     clearTimeout(notificationTimer);
-    // }
-
-    // notificationTimer = setTimeout(() => {
-    //     document.getElementById("notification").innerText = "";
-    // }, 10000);
+function clearMasterNotification() {
+    masterNotication = false;
+    document.getElementById("notification").innerText = lastNotification;
+    document.getElementById("notification-container").classList.remove("master-notification");
 }
 
 function locationUpdate(location) {
@@ -126,6 +159,15 @@ function displayLeaderboard() {
         team.innerText = `${scores[i][0]} - ${scores[i][1]}`;
         board.appendChild(team);
     }
+
+    let thisTeam = localStorage.getItem("teamName");
+    if (thisTeam === null) {
+        window.location.href = "register.html";
+        return;
+    }
+
+    let score = document.getElementById("score");
+    score.innerText = SCORES[thisTeam] ?? 0;
 }
 
 function checkIfCloseToMarker(location) {
@@ -150,8 +192,8 @@ function checkIfCloseToMarker(location) {
 }
 
 function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
-    var R = 6371; // Radius of the earth in km
-    var dLat = deg2rad(lat2 - lat1);  // deg2rad below
+    var r = 6371; // Radius of the earth in km
+    var dLat = deg2rad(lat2 - lat1);
     var dLon = deg2rad(lon2 - lon1);
     var a =
         Math.sin(dLat / 2) * Math.sin(dLat / 2) +
@@ -159,7 +201,7 @@ function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
         Math.sin(dLon / 2) * Math.sin(dLon / 2)
         ;
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    var d = R * c; // Distance in km
+    var d = r * c; // Distance in km
     return d;
 }
 
@@ -168,6 +210,7 @@ function deg2rad(deg) {
 }
 
 function displayQuestion(duckId) {
+    vibrate();
     let riddle = RIDDLES[0];
 
     let riddleQuestion = document.getElementById("riddle-question");
@@ -227,5 +270,11 @@ function resetRiddle() {
 
     while (answers.firstChild) {
         answers.removeChild(answers.lastChild);
+    }
+}
+
+function vibrate() {
+    if (navigator.vibrate) {
+        navigator.vibrate([300, 100, 300]);
     }
 }

@@ -10,7 +10,6 @@ body {
 .container {
     display: grid;
     grid-template-columns: auto auto;
-    margin-top: 10px;
     column-gap: 10px;
 }
 
@@ -18,17 +17,16 @@ body {
     text-align: center;
 }
 
-
 #leaderboard-container {
     background-color: rgb(232, 218, 221);
     border-radius: 10px;
 }
 
-#notification-container {
+/* #notification-container {
     position: fixed;
     bottom: 0;
     left: 0;
-}
+} */
 
 /* Popup container */
 .popup-container {
@@ -82,4 +80,23 @@ body {
 
 .no-margin {
     margin: 0px;
+}
+
+.grey-card {
+    background-color: rgb(232, 218, 221);
+    border-radius: 10px;
+}
+
+.full-width {
+    padding: 5px 10px;
+    width: calc(100vw - 40px);
+    margin-top: 10px;
+}
+
+.no-margin {
+    margin: 0px;
+}
+
+.master-notification {
+    background-color: rgb(68, 192, 254);
 }
