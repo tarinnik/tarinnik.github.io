@@ -4,7 +4,7 @@ const NEAR_DUCKS = [];
 const RIDDLES_USED = [];
 const DUCK_RIDDLES_USED = [];
 
-const MAX_DISTANCE_FROM_DUCK = 100;
+const MAX_DISTANCE_FROM_DUCK = 20;
 
 let map = null;
 let locationMarker = null;
@@ -37,8 +37,13 @@ function setupMap() {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
+    let icon = L.icon({
+        iconUrl: "images/good_duck.png",
+        iconSize: [20, 30]
+    });
+
     for (var i = 0; i < DUCKS.length; i++) {
-        DUCK_ICONS[DUCKS[i].id] = L.marker(DUCKS[i].coords)
+        DUCK_ICONS[DUCKS[i].id] = L.marker(DUCKS[i].coords, { icon: icon })
             .addTo(map)
             .bindPopup(DUCKS[i].message);
     }
@@ -91,8 +96,21 @@ function messageReceived(msg) {
 
 function duckFound(msg) {
     let icon = DUCK_ICONS[msg.id];
-    if (icon !== null || icon !== undefined) {
+    if (icon) {
         icon.remove();
+
+        let duck = getDuck(msg.id);
+        if (!duck) {
+            return;
+        }
+
+        let newIcon = L.icon({
+            iconUrl: "images/bad_duck.png",
+            iconSize: [20, 30]
+        });
+        DUCK_ICONS[msg.id] = L.marker(duck.coords, { icon: newIcon })
+            .addTo(map)
+            .bindPopup(duck.message);
     }
 }
 
@@ -277,4 +295,14 @@ function vibrate() {
     if (navigator.vibrate) {
         navigator.vibrate([300, 100, 300]);
     }
+}
+
+function getDuck(id) {
+    for (let i = 0; i < DUCKS.length; i++) {
+        if (DUCKS[i].id == id) {
+            return DUCKS[i];
+        }
+    }
+
+    return null;
 }
