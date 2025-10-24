@@ -12,6 +12,9 @@ let notificationTimer = null;
 let masterNotication = false;
 let lastNotification = "";
 
+let doingRiddle = false;
+let riddleQueue = [];
+
 addEventListener("load", (_event) => { setup() })
 
 function setup() {
@@ -202,7 +205,8 @@ function checkIfCloseToMarker(location) {
         if (distance <= MAX_DISTANCE_FROM_DUCK) {
             if (!DUCK_RIDDLES_USED.includes(id) && !NEAR_DUCKS.includes(id)) {
                 NEAR_DUCKS.push(id);
-                setTimeout(() => { displayQuestion(id) }, 1000);
+                DUCK_RIDDLES_USED.push(id);
+                addRiddleToQueue(id);
             }
         } else if (NEAR_DUCKS.includes(id)) {
             let index = NEAR_DUCKS.indexOf(id);
@@ -227,6 +231,22 @@ function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
 
 function deg2rad(deg) {
     return deg * (Math.PI / 180)
+}
+
+function addRiddleToQueue(id) {
+    riddleQueue.push(id);
+
+    if (!doingRiddle) {
+        getQuestion();
+    }
+}
+
+function getQuestion() {
+    if (!doingRiddle && riddleQueue.length != 0) {
+        doingRiddle = true;
+        let id = riddleQueue.shift();
+        setTimeout(() => { displayQuestion(id) }, 1000);
+    }
 }
 
 function displayQuestion(duckId) {
@@ -288,11 +308,14 @@ function resetRiddle() {
     let answers = document.getElementById("riddle-answers");
     setTimeout(() => {
         document.getElementById("myPopup").classList.toggle("show");
-    }, 5000);
+    }, 1000);
 
     while (answers.firstChild) {
         answers.removeChild(answers.lastChild);
     }
+
+    doingRiddle = false;
+    getQuestion();
 }
 
 function vibrate() {
