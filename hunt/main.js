@@ -1,7 +1,6 @@
 const DUCK_ICONS = {};
 const SCORES = {};
 const NEAR_DUCKS = [];
-const RIDDLES_USED = [];
 const DUCK_RIDDLES_USED = [];
 
 const MAX_DISTANCE_FROM_DUCK = 20;
@@ -121,7 +120,6 @@ function riddleDone(msg) {
         return;
     }
 
-    RIDDLES_USED.push(msg.riddleId);
     if (msg.team === thisTeam) {
         DUCK_RIDDLES_USED.push(msg.duckId);
     }
@@ -229,30 +227,33 @@ function deg2rad(deg) {
 
 function displayQuestion(duckId) {
     vibrate();
-    let riddle = RIDDLES[0];
+    let duck = getDuck(duckId);
+    let riddle = duck?.riddle;
+    let riddleAnswerOptions = duck?.riddleAnswerOptions;
+    let riddleAnswer = duck?.riddleAnswer;
 
     let riddleQuestion = document.getElementById("riddle-question");
-    riddleQuestion.innerText = riddle.riddle;
+    riddleQuestion.innerText = riddle;
 
     // Answers
     let answers = document.getElementById("riddle-answers");
-    for (var i = 0; i < riddle.riddleAnswerOptions.length; i++) {
-        let isCorrect = riddle.riddleAnswer == i;
-        let element = createRiddleAnswer(riddle.riddleAnswerOptions[i], riddle.id, duckId, isCorrect);
+    for (var i = 0; i < riddleAnswerOptions.length; i++) {
+        let isCorrect = riddleAnswer == i;
+        let element = createRiddleAnswer(riddleAnswerOptions[i], duckId, isCorrect);
         answers.appendChild(element);
     }
 
     document.getElementById("myPopup").classList.toggle("show");
 }
 
-function createRiddleAnswer(text, riddleId, duckId, isCorrect) {
+function createRiddleAnswer(text, duckId, isCorrect) {
     let answer = document.createElement("p");
     answer.innerText = text;
     answer.className = "riddle-answer";
 
     let clickFn = (isCorrect) ? riddleCorrect : riddleIncorrect;
     answer.onclick = () => {
-        clickFn(riddleId, duckId);
+        clickFn(duckId);
         resetRiddle();
     }
 
@@ -261,19 +262,18 @@ function createRiddleAnswer(text, riddleId, duckId, isCorrect) {
 
 /**
  * 
- * @param {string} riddleId 
  * @param {string} duckId 
  */
-function riddleCorrect(riddleId, duckId) {
-    let message = createRiddleDoneMessage(riddleId, duckId, true)
+function riddleCorrect(duckId) {
+    let message = createRiddleDoneMessage(duckId, true)
     sendMessage(message);
 
     let riddleQuestion = document.getElementById("riddle-question");
     riddleQuestion.innerText = "Yay, you got it right!"
 }
 
-function riddleIncorrect(riddleId, duckId) {
-    let message = createRiddleDoneMessage(riddleId, duckId, false)
+function riddleIncorrect(duckId) {
+    let message = createRiddleDoneMessage(duckId, false)
     sendMessage(message);
 
     let riddleQuestion = document.getElementById("riddle-question");
@@ -297,6 +297,11 @@ function vibrate() {
     }
 }
 
+/**
+ * 
+ * @param {string} id 
+ * @returns string
+ */
 function getDuck(id) {
     for (let i = 0; i < DUCKS.length; i++) {
         if (DUCKS[i].id == id) {

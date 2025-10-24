@@ -9,7 +9,10 @@ function createDuck(location) {
     let newDuck = {
         "id": id,
         "coordinates": [location.coords.latitude, location.coords.longitude],
-        "message": ""
+        "message": "",
+        "riddle": "",
+        "riddleAnswerOptions": ["", "", "", ""],
+        "riddleAnswer": 0,
     };
     data.push(newDuck);
 

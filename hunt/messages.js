@@ -41,7 +41,7 @@ function createDuckFoundMessage(duckid) {
  * @param {bool} success if the riddle was answered correctly
  * @returns 
  */
-function createRiddleDoneMessage(riddleId, duckId, success) {
+function createRiddleDoneMessage(duckId, success) {
     let team = localStorage.getItem("teamName");
     if (team === null) {
         window.location.href = "register.html";
@@ -52,7 +52,6 @@ function createRiddleDoneMessage(riddleId, duckId, success) {
 
     let message = {
         "type": type,
-        "riddleId": riddleId,
         "duckId": duckId,
         "team": team,
     };
