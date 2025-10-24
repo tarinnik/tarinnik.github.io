@@ -107,7 +107,7 @@ function duckFound(msg) {
             iconUrl: "images/bad_duck.png",
             iconSize: [20, 30]
         });
-        DUCK_ICONS[msg.id] = L.marker(duck.coords, { icon: newIcon })
+        DUCK_ICONS[msg.id] = L.marker(duck.coordinates, { icon: newIcon })
             .addTo(map)
             .bindPopup(duck.message);
     }
@@ -193,7 +193,7 @@ function checkIfCloseToMarker(location) {
     for (let i = 0; i < DUCKS.length; i++) {
         let id = DUCKS[i].id;
 
-        let distance = getDistanceFromLatLonInKm(lat1, lon1, DUCKS[i].coords[0], DUCKS[i].coords[1]) * 1000;
+        let distance = getDistanceFromLatLonInKm(lat1, lon1, DUCKS[i].coordinates[0], DUCKS[i].coordinates[1]) * 1000;
         console.log(`${distance} km`);
         if (distance <= MAX_DISTANCE_FROM_DUCK) {
             if (!DUCK_RIDDLES_USED.includes(id) && !NEAR_DUCKS.includes(id)) {
