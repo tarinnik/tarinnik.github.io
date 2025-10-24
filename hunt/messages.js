@@ -91,6 +91,21 @@ function clearMasterNotification() {
 }
 
 /**
+ * Creates and sends a points message
+ * @param {string} team 
+ * @param {number} points 
+ */
+function addPoints(team, points) {
+    let msg = {
+        "type": "add_points",
+        "team": team,
+        "points": points
+    };
+
+    sendMessage(JSON.stringify(msg))
+}
+
+/**
  * Sends a message to ntfy
  * @param {String} message the message to send
  */

@@ -75,6 +75,10 @@ function messageReceived(msg) {
         case "clear_notification":
             clearMasterNotification();
             break;
+        case "add_points":
+            score = msg.points;
+            message = `${msg.team} just got ${msg.points} points`;
+            break;
         default:
             return;
     }
@@ -194,7 +198,7 @@ function checkIfCloseToMarker(location) {
         let id = DUCKS[i].id;
 
         let distance = getDistanceFromLatLonInKm(lat1, lon1, DUCKS[i].coordinates[0], DUCKS[i].coordinates[1]) * 1000;
-        console.log(`${distance} km`);
+        console.log(`${distance} m`);
         if (distance <= MAX_DISTANCE_FROM_DUCK) {
             if (!DUCK_RIDDLES_USED.includes(id) && !NEAR_DUCKS.includes(id)) {
                 NEAR_DUCKS.push(id);
