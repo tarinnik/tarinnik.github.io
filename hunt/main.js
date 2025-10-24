@@ -42,7 +42,7 @@ function setupMap() {
     });
 
     for (var i = 0; i < DUCKS.length; i++) {
-        DUCK_ICONS[DUCKS[i].id] = L.marker(DUCKS[i].coords, { icon: icon })
+        DUCK_ICONS[DUCKS[i].id] = L.marker(DUCKS[i].coordinates, { icon: icon })
             .addTo(map)
             .bindPopup(DUCKS[i].message);
     }
