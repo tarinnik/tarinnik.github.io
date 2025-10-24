@@ -5,7 +5,7 @@ const DUCKS = [
             -35.2066097,
             150.5525352
         ],
-        "message": "",
+        "message": "Fake",
         "riddle": "What is Mim's favourite colour?",
         "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
         "riddleAnswer": 0,
@@ -16,7 +16,7 @@ const DUCKS = [
             -35.2066097,
             150.5525352
         ],
-        "message": "",
+        "message": "1",
         "riddle": "What is Mim's favourite colour?",
         "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
         "riddleAnswer": 0,
@@ -27,7 +27,7 @@ const DUCKS = [
             -35.2066459,
             150.5524173
         ],
-        "message": "",
+        "message": "2",
         "riddle": "What is Mim's favourite colour?",
         "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
         "riddleAnswer": 0,
@@ -38,7 +38,7 @@ const DUCKS = [
             -35.2066725,
             150.5522731
         ],
-        "message": "",
+        "message": "3",
         "riddle": "What is Mim's favourite colour?",
         "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
         "riddleAnswer": 0,
@@ -49,7 +49,7 @@ const DUCKS = [
             -35.2067548,
             150.5522283
         ],
-        "message": "",
+        "message": "4",
         "riddle": "What is Mim's favourite colour?",
         "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
         "riddleAnswer": 0,
@@ -60,7 +60,7 @@ const DUCKS = [
             -35.207339,
             150.5529899
         ],
-        "message": "",
+        "message": "5",
         "riddle": "What is Mim's favourite colour?",
         "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
         "riddleAnswer": 0,
@@ -71,7 +71,7 @@ const DUCKS = [
             -35.2073714,
             150.5533033
         ],
-        "message": "",
+        "message": "6",
         "riddle": "What is Mim's favourite colour?",
         "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
         "riddleAnswer": 0,
@@ -82,7 +82,7 @@ const DUCKS = [
             -35.2072723,
             150.5534773
         ],
-        "message": "",
+        "message": "7",
         "riddle": "What is Mim's favourite colour?",
         "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
         "riddleAnswer": 0,
@@ -93,7 +93,7 @@ const DUCKS = [
             -35.2069815,
             150.5538492
         ],
-        "message": "",
+        "message": "8",
         "riddle": "What is Mim's favourite colour?",
         "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
         "riddleAnswer": 0,
@@ -104,7 +104,7 @@ const DUCKS = [
             -35.2067481,
             150.5540369
         ],
-        "message": "",
+        "message": "9",
         "riddle": "What is Mim's favourite colour?",
         "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
         "riddleAnswer": 0,
@@ -115,7 +115,7 @@ const DUCKS = [
             -35.2065883,
             150.5540895
         ],
-        "message": "",
+        "message": "10",
         "riddle": "What is Mim's favourite colour?",
         "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
         "riddleAnswer": 0,
@@ -126,7 +126,7 @@ const DUCKS = [
             -35.2061382,
             150.5527449
         ],
-        "message": "",
+        "message": "11",
         "riddle": "What is Mim's favourite colour?",
         "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
         "riddleAnswer": 0,
@@ -137,7 +137,7 @@ const DUCKS = [
             -35.2061059,
             150.5527401
         ],
-        "message": "",
+        "message": "12",
         "riddle": "What is Mim's favourite colour?",
         "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
         "riddleAnswer": 0,
@@ -148,7 +148,7 @@ const DUCKS = [
             -35.2062776,
             150.5529324
         ],
-        "message": "",
+        "message": "13",
         "riddle": "What is Mim's favourite colour?",
         "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
         "riddleAnswer": 0,

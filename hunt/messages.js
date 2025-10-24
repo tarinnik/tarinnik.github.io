@@ -2,6 +2,7 @@ const TOPIC = "51ULzENMpv5Kbwo4pEYdeSLfj7RvQJMFwLaJjTbE4CmkAjREgm";
 const DUCKS_FOUND = [];
 
 let eventFn = null;
+let hasLoaded = false;
 
 /**
  * Initiates the receive side of ntfy
@@ -12,6 +13,16 @@ function getMessages(fn) {
     events = new WebSocket(`wss://ntfy.sh/${TOPIC}/ws?since=all`);
     events.onmessage = (e) => {
         receiveMessage(e.data);
+    }
+    events.onerror = (_e) => {
+        if (hasLoaded) {
+            window.location.reload();
+        } else {
+            alert("No internet connection!");
+        }
+    }
+    events.onopen = (_e) => {
+        hasLoaded = true;
     }
 }
 
