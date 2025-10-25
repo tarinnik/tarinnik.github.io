@@ -152,5 +152,115 @@ const DUCKS = [
         "riddle": "What is Mim's favourite colour?",
         "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
         "riddleAnswer": 0,
+    },
+    {
+        "id": "e3f4e548-819f-4713-900e-a4a8c5cc9521",
+        "coordinates": [
+            -34.89455737836922,
+            150.6119102239609
+        ],
+        "message": "",
+        "riddle": "What is Mim's favourite colour?",
+        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
+        "riddleAnswer": 0,
+    },
+    {
+        "id": "03699ed7-27db-4f4e-aca8-ded9ab848ff7",
+        "coordinates": [
+            -34.89399884288666,
+            150.61109483242038
+        ],
+        "message": "",
+        "riddle": "What is Mim's favourite colour?",
+        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
+        "riddleAnswer": 0,
+    },
+    {
+        "id": "3f853ddd-94a3-486e-94cf-a349dfda8d0b",
+        "coordinates": [
+            -34.89384931305794,
+            150.61020433902743
+        ],
+        "message": "",
+        "riddle": "What is Mim's favourite colour?",
+        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
+        "riddleAnswer": 0,
+    },
+    {
+        "id": "bd1c9168-4ee8-4a26-a252-e69b535582f4",
+        "coordinates": [
+            -34.893761354208,
+            150.60937285423282
+        ],
+        "message": "",
+        "riddle": "What is Mim's favourite colour?",
+        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
+        "riddleAnswer": 0,
+    },
+    {
+        "id": "9cb59cdd-2c81-417c-b0bf-3495e17471a8",
+        "coordinates": [
+            -34.89421434127869,
+            150.60930311679843
+        ],
+        "message": "",
+        "riddle": "What is Mim's favourite colour?",
+        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
+        "riddleAnswer": 0,
+    },
+    {
+        "id": "40bc4ae8-d81d-492a-8ffa-8a5dd9c7309d",
+        "coordinates": [
+            -34.89464093846918,
+            150.60926556587222
+        ],
+        "message": "",
+        "riddle": "What is Mim's favourite colour?",
+        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
+        "riddleAnswer": 0,
+    },
+    {
+        "id": "a99aa035-6ab4-4056-8f32-5e7cc10b90b9",
+        "coordinates": [
+            -34.89474209005543,
+            150.61002731323245
+        ],
+        "message": "",
+        "riddle": "What is Mim's favourite colour?",
+        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
+        "riddleAnswer": 0,
+    },
+    {
+        "id": "59b671fa-14a1-40ce-8fcd-08623218297c",
+        "coordinates": [
+            -34.89483444574278,
+            150.61092317104342
+        ],
+        "message": "",
+        "riddle": "What is Tom's favourite colour?",
+        "riddleAnswerOptions": ["Green", "Blue", "Yellow", "Red"],
+        "riddleAnswer": 2,
+    },
+    {
+        "id": "79e69bfb-fdbc-4479-a013-ccc9661d8b4b",
+        "coordinates": [
+            -34.89447381818428,
+            150.61101973056796
+        ],
+        "message": "",
+        "riddle": "What is TK's favourite show?",
+        "riddleAnswerOptions": ["Top Gear", "The Expanse", "The Grand Tour", "All of them"],
+        "riddleAnswer": 3,
+    },
+    {
+        "id": "d62ffbac-5617-45eb-be30-a30bf861db8a",
+        "coordinates": [
+            -34.89405161805536,
+            150.61148643493655
+        ],
+        "message": "",
+        "riddle": "What is Mim's favourite colour?",
+        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
+        "riddleAnswer": 0,
     }
 ];
