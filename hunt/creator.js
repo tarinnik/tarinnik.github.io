@@ -1,14 +1,41 @@
 let data = [];
+let markerLocation = [];
+let marker = null;
+let map = null;
 
-function createNew() {
-    navigator.geolocation.getCurrentPosition(createDuck, failedToGetLocation);
+addEventListener("load", (_event) => { setup() })
+
+function setup() {
+    setupMap();
 }
 
-function createDuck(location) {
+function setupMap() {
+    map = L.map('map').setView([-35.209640242440635, 150.55155538056127], 15);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    map.on('click', (e) => {
+        setMarkerLocation(e.latlng.lat, e.latlng.lng);
+    });
+}
+
+function setMarkerLocation(lat, long) {
+    markerLocation = [lat, long];
+
+    if (marker) {
+        marker.remove();
+    }
+
+    marker = L.marker(markerLocation).addTo(map);
+}
+
+function createDuck() {
     let id = crypto.randomUUID();
     let newDuck = {
         "id": id,
-        "coordinates": [location.coords.latitude, location.coords.longitude],
+        "coordinates": markerLocation,
         "message": "",
         "riddle": "",
         "riddleAnswerOptions": ["", "", "", ""],
