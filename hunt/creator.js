@@ -2,6 +2,7 @@ let data = [];
 let markerLocation = [];
 let marker = null;
 let map = null;
+let riddleIndex = 0;
 
 addEventListener("load", (_event) => { setup() })
 
@@ -33,13 +34,16 @@ function setMarkerLocation(lat, long) {
 
 function createDuck() {
     let id = crypto.randomUUID();
+    let riddle = RIDDLES[riddleIndex];
+    riddleIndex += 1;
+    document.getElementById("riddle-index").value = riddleIndex;
     let newDuck = {
         "id": id,
         "coordinates": markerLocation,
         "message": "",
-        "riddle": "",
-        "riddleAnswerOptions": ["", "", "", ""],
-        "riddleAnswer": 0,
+        "riddle": riddle.riddle,
+        "riddleAnswerOptions": riddle.riddleAnswerOptions,
+        "riddleAnswer": riddle.riddleAnswer,
     };
     data.push(newDuck);
 
@@ -64,4 +68,8 @@ function downloadData(text, name) {
 
 function failedToGetLocation(error) {
     alert(`Unable to get location: ${err}`);
+}
+
+function setIndex() {
+    riddleIndex = parseFloat(document.getElementById("riddle-index").value);
 }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Scavenger Hunt Creator</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="riddleData.js"></script>
     <script src="creator.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -14,6 +15,8 @@
 </head>
 
 <body>
+    <input id="riddle-index">
+    <button onclick="setIndex()">Set Index</button><br>
     <button onclick="createDuck()">Create Duck</button>
     <div id="map"></div>
 </body>
