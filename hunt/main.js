@@ -27,7 +27,10 @@ function setup() {
 }
 
 function checkRegistration() {
-    if (localStorage.getItem("teamName") === null) {
+    let teamName = localStorage.getItem("teamName");
+    if (teamName) {
+        document.getElementById("team-name").innerText = teamName;
+    } else {
         window.location.replace("register.html");
     }
 }
