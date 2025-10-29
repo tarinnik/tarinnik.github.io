@@ -73,5 +73,55 @@ const RIDDLES = [
         riddle: "Which sea has no coastline?",
         riddleAnswerOptions: ["Caspian Sea", "Dead Sea", "Sargasso Sea", "Ligurian Sea"],
         riddleAnswer: 2
+    },
+    {
+        riddle: "In 1994, which soccer player was sent off in a World Cup match on his birthday?",
+        riddleAnswerOptions: ["Roy Keane", "Gianfranco Zola", "Zinedine Zidane", "David Beckham"],
+        riddleAnswer: 1
+    },
+    {
+        riddle: "Which exotic fruit did Mark Twain call 'the most delivious fruit known to men'?",
+        riddleAnswerOptions: ["Cherimoya", "Rambutan", "Carambola (Starfruit)", "Kiwano (Horned Melon)"],
+        riddleAnswer: 0
+    },
+    {
+        riddle: "Which planet's density is so low that is would float in water?",
+        riddleAnswerOptions: ["Netptune", "Saturn", "Uranus", "Mercury"],
+        riddleAnswer: 1
+    },
+    {
+        riddle: "Apollo 17 astronaut Harrison Schmitt is allergic to what?",
+        riddleAnswerOptions: ["Space suits", "Rocket fuel", "Moondust", "Dried food"],
+        riddleAnswer: 2
+    },
+    {
+        riddle: "An episode of which TV series was taken off air in 1976 because it scared children?",
+        riddleAnswerOptions: ["Rugrats", "DuckTales", "Fraggle Rock", "Sesame Street"],
+        riddleAnswer: 3
+    },
+    {
+        riddle: "Which of the following can be used to pop popcorn",
+        riddleAnswerOptions: ["A smartphone", "A camera", "A torch", "A laser"],
+        riddleAnswer: 3
+    },
+    {
+        riddle: "In 1872, which ship was found floating in the Atlantic intact but with no crew?",
+        riddleAnswerOptions: ["Lusitania", "Titanic", "Bounty", "Mary Celeste"],
+        riddleAnswer: 3
+    },
+    {
+        riddle: "What is the term for a group of lemurs?",
+        riddleAnswerOptions: ["A conspiracy", "An equation", "A calamity", "A muddle"],
+        riddleAnswer: 0
+    },
+    {
+        riddle: "Which element is not permitted on an aircraft?",
+        riddleAnswerOptions: ["Lithium", "Selenium", "Mercury", "Lead"],
+        riddleAnswer: 2
+    },
+    {
+        riddle: "What was the name of Abraham Lincoln's dog?",
+        riddleAnswerOptions: ["Spot", "Fido", "Patch", "Rover"],
+        riddleAnswer: 1
     }
 ];
