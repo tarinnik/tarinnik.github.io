@@ -67,7 +67,9 @@ function messageReceived(msg) {
             message = `${msg.team} just found a duck!`
             break;
         case "riddle_success":
-            riddleDone(msg);
+            if (!riddleDone(msg)) {
+                return;
+            }
             score = 1;
             message = `${msg.team} got a riddle correct!`;
             break;
@@ -123,6 +125,11 @@ function duckFound(msg) {
     }
 }
 
+/**
+ * Process the done riddle
+ * @param {object} msg 
+ * @returns false is the riddle has already been used for this team
+ */
 function riddleDone(msg) {
     let thisTeam = localStorage.getItem("teamName");
     if (thisTeam === null) {
@@ -131,8 +138,14 @@ function riddleDone(msg) {
     }
 
     if (msg.team === thisTeam) {
+        // Check if the riddle has already been used for this team
+        if (DUCK_RIDDLES_USED.includes(msg.duckId)) {
+            return false;
+        }
         DUCK_RIDDLES_USED.push(msg.duckId);
     }
+
+    return true;
 }
 
 function setNotification(message) {
