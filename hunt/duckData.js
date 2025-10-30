@@ -1,266 +1,178 @@
 const DUCKS = [
     {
-        "id": "ac45646b-7bef-49b5-a6bf-c549667fc657",
+        "id": "d142f0bd-cedc-43b5-84e9-bd682248def4",
         "coordinates": [
-            -35.2066097,
-            150.5525352
-        ],
-        "message": "Fake",
-        "riddle": "What is Mim's favourite colour?",
-        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
-        "riddleAnswer": 0,
-    },
-    {
-        "id": "1f571a5d-da99-4143-a043-fda8d7021795",
-        "coordinates": [
-            -35.2066097,
-            150.5525352
-        ],
-        "message": "1",
-        "riddle": "What is Mim's favourite colour?",
-        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
-        "riddleAnswer": 0,
-    },
-    {
-        "id": "8317d84c-3614-4703-a03e-8ae0f997fadb",
-        "coordinates": [
-            -35.2066459,
-            150.5524173
-        ],
-        "message": "2",
-        "riddle": "What is Mim's favourite colour?",
-        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
-        "riddleAnswer": 0,
-    },
-    {
-        "id": "a4814239-a9a0-49b2-b6fd-5c9d78c7e5f1",
-        "coordinates": [
-            -35.2066725,
-            150.5522731
-        ],
-        "message": "3",
-        "riddle": "What is Mim's favourite colour?",
-        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
-        "riddleAnswer": 0,
-    },
-    {
-        "id": "9330965b-5cf7-48f1-b160-934137cb3aab",
-        "coordinates": [
-            -35.2067548,
-            150.5522283
-        ],
-        "message": "4",
-        "riddle": "What is Mim's favourite colour?",
-        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
-        "riddleAnswer": 0,
-    },
-    {
-        "id": "c4af11e2-42b6-464e-8901-277fe526b52b",
-        "coordinates": [
-            -35.207339,
-            150.5529899
-        ],
-        "message": "5",
-        "riddle": "What is Mim's favourite colour?",
-        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
-        "riddleAnswer": 0,
-    },
-    {
-        "id": "0b6f8c01-7b31-44c1-a80c-b9343242969f",
-        "coordinates": [
-            -35.2073714,
-            150.5533033
-        ],
-        "message": "6",
-        "riddle": "What is Mim's favourite colour?",
-        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
-        "riddleAnswer": 0,
-    },
-    {
-        "id": "ebaa3fc6-2b86-428d-a5aa-fc30a1faec8d",
-        "coordinates": [
-            -35.2072723,
-            150.5534773
-        ],
-        "message": "7",
-        "riddle": "What is Mim's favourite colour?",
-        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
-        "riddleAnswer": 0,
-    },
-    {
-        "id": "951b9831-7455-4c70-9202-cfcf412a5ee3",
-        "coordinates": [
-            -35.2069815,
-            150.5538492
-        ],
-        "message": "8",
-        "riddle": "What is Mim's favourite colour?",
-        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
-        "riddleAnswer": 0,
-    },
-    {
-        "id": "1d730d93-df59-44dd-8a18-5d33dd8f5c95",
-        "coordinates": [
-            -35.2067481,
-            150.5540369
-        ],
-        "message": "9",
-        "riddle": "What is Mim's favourite colour?",
-        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
-        "riddleAnswer": 0,
-    },
-    {
-        "id": "a198e785-88f4-4e29-a7eb-8bd0aa4f4c09",
-        "coordinates": [
-            -35.2065883,
-            150.5540895
-        ],
-        "message": "10",
-        "riddle": "What is Mim's favourite colour?",
-        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
-        "riddleAnswer": 0,
-    },
-    {
-        "id": "6240772c-334a-40a3-80b8-d1f3ffd0d87e",
-        "coordinates": [
-            -35.2061382,
-            150.5527449
-        ],
-        "message": "11",
-        "riddle": "What is Mim's favourite colour?",
-        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
-        "riddleAnswer": 0,
-    },
-    {
-        "id": "7788fa4c-ddd3-4a31-8f73-68ed8c115016",
-        "coordinates": [
-            -35.2061059,
-            150.5527401
-        ],
-        "message": "12",
-        "riddle": "What is Mim's favourite colour?",
-        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
-        "riddleAnswer": 0,
-    },
-    {
-        "id": "86294d6a-78c2-454d-9b70-780415ba72f4",
-        "coordinates": [
-            -35.2062776,
-            150.5529324
-        ],
-        "message": "13",
-        "riddle": "What is Mim's favourite colour?",
-        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
-        "riddleAnswer": 0,
-    },
-    {
-        "id": "e3f4e548-819f-4713-900e-a4a8c5cc9521",
-        "coordinates": [
-            -34.89455737836922,
-            150.6119102239609
+            -34.89460770303969,
+            150.61192095279696
         ],
         "message": "",
-        "riddle": "What is Mim's favourite colour?",
-        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
-        "riddleAnswer": 0,
+        "riddle": "What is the name of the punctuation mark that is a combination of a question and exclamation mark?",
+        "riddleAnswerOptions": [
+            "Percontation point",
+            "SarcMark",
+            "Interrobang",
+            "Authority point"
+        ],
+        "riddleAnswer": 2
     },
     {
-        "id": "03699ed7-27db-4f4e-aca8-ded9ab848ff7",
+        "id": "b1effd99-923f-4458-ad7b-b1f376af06db",
         "coordinates": [
-            -34.89399884288666,
-            150.61109483242038
+            -34.89411953474021,
+            150.6118190288544
         ],
         "message": "",
-        "riddle": "What is Mim's favourite colour?",
-        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
-        "riddleAnswer": 0,
+        "riddle": "What did Steve Jobs soak his feet in when he wanted to de-stress?",
+        "riddleAnswerOptions": [
+            "A puddle",
+            "A toilet",
+            "A bucket",
+            "A ditch"
+        ],
+        "riddleAnswer": 1
     },
     {
-        "id": "3f853ddd-94a3-486e-94cf-a349dfda8d0b",
+        "id": "aa0aa235-927e-40b0-b673-e035199cdecb",
         "coordinates": [
-            -34.89384931305794,
-            150.61020433902743
+            -34.89404037203991,
+            150.6111001968384
         ],
         "message": "",
-        "riddle": "What is Mim's favourite colour?",
-        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
-        "riddleAnswer": 0,
+        "riddle": "Every continent, except Antaractica, has a city called what?",
+        "riddleAnswerOptions": [
+            "Paris",
+            "York",
+            "Rome (Roma)",
+            "Seville"
+        ],
+        "riddleAnswer": 2
     },
     {
-        "id": "bd1c9168-4ee8-4a26-a252-e69b535582f4",
+        "id": "0f21c58f-8b77-4845-ba0b-fedbba0b54ef",
         "coordinates": [
-            -34.893761354208,
-            150.60937285423282
+            -34.89395241339459,
+            150.6106495857239
         ],
         "message": "",
-        "riddle": "What is Mim's favourite colour?",
-        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
-        "riddleAnswer": 0,
+        "riddle": "What colour are the hairs of a polar bear's fur?",
+        "riddleAnswerOptions": [
+            "Cream",
+            "Transparent",
+            "White",
+            "Grey"
+        ],
+        "riddleAnswer": 1
     },
     {
-        "id": "9cb59cdd-2c81-417c-b0bf-3495e17471a8",
+        "id": "018618f4-ee80-49df-b0b7-5356b89457d1",
         "coordinates": [
-            -34.89421434127869,
-            150.60930311679843
+            -34.89392162784645,
+            150.61018824577334
         ],
         "message": "",
-        "riddle": "What is Mim's favourite colour?",
-        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
-        "riddleAnswer": 0,
+        "riddle": "What type of a fruit is a Bing?",
+        "riddleAnswerOptions": [
+            "Cherry",
+            "Pear",
+            "Plum",
+            "Apple"
+        ],
+        "riddleAnswer": 0
     },
     {
-        "id": "40bc4ae8-d81d-492a-8ffa-8a5dd9c7309d",
+        "id": "11c056e5-8625-40e5-8c07-3cdaedf9e08b",
         "coordinates": [
-            -34.89464093846918,
-            150.60926556587222
+            -34.894392205679566,
+            150.6101077795029
         ],
         "message": "",
-        "riddle": "What is Mim's favourite colour?",
-        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
-        "riddleAnswer": 0,
+        "riddle": "What country was put up for sale on eBay in 2006?",
+        "riddleAnswerOptions": [
+            "Malawi",
+            "New Zealand",
+            "Bolivia",
+            "Malaysia"
+        ],
+        "riddleAnswer": 1
     },
     {
-        "id": "a99aa035-6ab4-4056-8f32-5e7cc10b90b9",
+        "id": "28de373a-00a5-430a-8b6d-b5efa9915b51",
         "coordinates": [
-            -34.89474209005543,
-            150.61002731323245
+            -34.89475723148798,
+            150.61003267765048
         ],
         "message": "",
-        "riddle": "What is Mim's favourite colour?",
-        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
-        "riddleAnswer": 0,
+        "riddle": "What is the plural of cul-de-sac?",
+        "riddleAnswerOptions": [
+            "Cul-de-sac",
+            "Cul-des-sacs",
+            "Culs-de-sac",
+            "Culs-des-sacs"
+        ],
+        "riddleAnswer": 2
     },
     {
-        "id": "59b671fa-14a1-40ce-8fcd-08623218297c",
+        "id": "a76c7c08-e1c5-491a-863b-1f0a4f3e98a1",
         "coordinates": [
-            -34.89483444574278,
-            150.61092317104342
+            -34.89463803229961,
+            150.609228014946
         ],
         "message": "",
-        "riddle": "What is Tom's favourite colour?",
-        "riddleAnswerOptions": ["Green", "Blue", "Yellow", "Red"],
-        "riddleAnswer": 2,
+        "riddle": "What is the profession of both of Jack Black's parents?",
+        "riddleAnswerOptions": [
+            "Stand-up comedian",
+            "Nuclear physicist",
+            "Firefighter",
+            "Rocket scientist"
+        ],
+        "riddleAnswer": 3
     },
     {
-        "id": "79e69bfb-fdbc-4479-a013-ccc9661d8b4b",
+        "id": "9a849886-870c-4c7e-9f5a-1dd807c13925",
         "coordinates": [
-            -34.89447381818428,
-            150.61101973056796
+            -34.89426860804396,
+            150.6092977523804
         ],
         "message": "",
-        "riddle": "What is TK's favourite show?",
-        "riddleAnswerOptions": ["Top Gear", "The Expanse", "The Grand Tour", "All of them"],
-        "riddleAnswer": 3,
+        "riddle": "Lyme disease is named after a town in wich U.S State?",
+        "riddleAnswerOptions": [
+            "Connecticut",
+            "Idaho",
+            "Maine",
+            "Georgia"
+        ],
+        "riddleAnswer": 0
     },
     {
-        "id": "d62ffbac-5617-45eb-be30-a30bf861db8a",
+        "id": "9b7bb08d-6e9c-4ee7-b948-4aa24bcb72cb",
         "coordinates": [
-            -34.89405161805536,
-            150.61148643493655
+            -34.89383761097929,
+            150.60942649841311
         ],
         "message": "",
-        "riddle": "What is Mim's favourite colour?",
-        "riddleAnswerOptions": ["Pink", "Blue", "Purple", "Green"],
-        "riddleAnswer": 0,
+        "riddle": "In the TV series MythBusters, a standard household vacuum cleaner lifted what?",
+        "riddleAnswerOptions": [
+            "A dog",
+            "A bathtub",
+            "A refrigerator",
+            "A car"
+        ],
+        "riddleAnswer": 3
+    },
+    {
+        "id": "56ed0f4b-ee59-4943-9650-51e1cf422f5f",
+        "coordinates": [
+            -34.89489750786692,
+            150.61093389987948
+        ],
+        "message": "",
+        "riddle": "The legendary Man in the Iron Mask was imprisoned in which country?",
+        "riddleAnswerOptions": [
+            "Spain",
+            "Germany",
+            "Italy",
+            "France"
+        ],
+        "riddleAnswer": 3
     }
 ];
