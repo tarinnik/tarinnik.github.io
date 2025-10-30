@@ -3,7 +3,7 @@ const SCORES = {};
 const NEAR_DUCKS = [];
 const DUCK_RIDDLES_USED = [];
 
-const MAX_DISTANCE_FROM_DUCK = 20;
+const MAX_DISTANCE_FROM_DUCK = 30;
 
 let map = null;
 let locationMarker = null;
@@ -73,9 +73,9 @@ function messageReceived(msg) {
             score = 1;
             message = `${msg.team} got a riddle correct!`;
             break;
-        case "riddle_failure":
+        case "riddle_fail":
             riddleDone(msg);
-            message = `${msg.team} got a riddle wrong`;
+            message = `${msg.team} got a riddle wrong!`;
             break;
         case "master_notification":
             setMasterNotification(msg.message);
@@ -219,9 +219,9 @@ function checkIfCloseToMarker(location) {
         let distance = getDistanceFromLatLonInKm(lat1, lon1, DUCKS[i].coordinates[0], DUCKS[i].coordinates[1]) * 1000;
         console.log(`${distance} m`);
         if (distance <= MAX_DISTANCE_FROM_DUCK) {
-            if (!DUCK_RIDDLES_USED.includes(id) && !NEAR_DUCKS.includes(id)) {
+            if (!DUCK_RIDDLES_USED.includes(id) && !NEAR_DUCKS.includes(id) && !riddleQueue.includes(id)) {
                 NEAR_DUCKS.push(id);
-                DUCK_RIDDLES_USED.push(id);
+                //DUCK_RIDDLES_USED.push(id);
                 addRiddleToQueue(id);
             }
         } else if (NEAR_DUCKS.includes(id)) {

@@ -1,4 +1,4 @@
-const TOPIC = "51ULzENMpv5Kbwo4pEYdeSLfj7RvQJMFwLaJjTbE4CmkAjREgm";
+const TOPIC = "51ULzENMpv5Kbwo4peYdeSLfj7RvQJMFwLaJjTbE4CmkAjREgm";
 const DUCKS_FOUND = [];
 
 let eventFn = null;
