@@ -174,5 +174,8 @@ const DUCKS = [
             "France"
         ],
         "riddleAnswer": 3
+    },
+    {
+        "id": "f53d64b4-266a-40a3-8793-9a24b4d26554", "coordinates": [-34.8946332019778, 150.6116956472397], "message": "", "riddle": "Which punctuation mark is used to end a sentence with a note of skepticism?", "riddleAnswerOptions": ["Acclamation Point", "Irony mark", "Doubt point", "Certitude point"], "riddleAnswer": 2
     }
 ];
