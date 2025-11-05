@@ -130,6 +130,8 @@ function receiveMessage(message) {
         DUCKS_FOUND.push(msg.id);
     }
 
+    MESSAGES.push(msg);
+
     if (typeof (eventFn) === "function") {
         eventFn(msg)
     }
