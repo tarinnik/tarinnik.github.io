@@ -221,7 +221,6 @@ function checkIfCloseToMarker(location) {
         if (distance <= MAX_DISTANCE_FROM_DUCK) {
             if (!DUCK_RIDDLES_USED.includes(id) && !NEAR_DUCKS.includes(id) && !riddleQueue.includes(id)) {
                 NEAR_DUCKS.push(id);
-                //DUCK_RIDDLES_USED.push(id);
                 addRiddleToQueue(id);
             }
         } else if (NEAR_DUCKS.includes(id)) {
@@ -260,7 +259,7 @@ function addRiddleToQueue(id) {
 function getQuestion() {
     if (!doingRiddle && riddleQueue.length != 0) {
         doingRiddle = true;
-        let id = riddleQueue.shift();
+      let id = riddleQueue[0];
         setTimeout(() => { displayQuestion(id) }, 1000);
     }
 }
@@ -330,6 +329,7 @@ function resetRiddle() {
         answers.removeChild(answers.lastChild);
     }
 
+  riddleQueue.shift();
     doingRiddle = false;
     getQuestion();
 }
