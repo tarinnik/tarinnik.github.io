@@ -18,7 +18,7 @@
 
     <script>
         function register() {
-            let name = document.getElementById("teamName").value;
+            let name = document.getElementById("teamName").value.trim();
             localStorage.setItem("teamName", name);
             window.location.href = "/hunt";
         }
