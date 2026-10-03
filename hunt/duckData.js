@@ -62,8 +62,7 @@ const DUCKS = [
     {
         "id": "22b2646e-16ef-416d-bca3-f37e97974f72",
         "coordinates": [
-            -35.20565819631075,
-            150.55388867855075
+          -34.89401832047938, 150.61100272225016
         ],
         "message": "",
         "riddle": "What type of a fruit is a Bing?",
@@ -78,8 +77,7 @@ const DUCKS = [
     {
         "id": "7bf49d18-7b43-4a81-a5bd-d0fa8b7aa3d1",
         "coordinates": [
-            -35.20549176484239,
-            150.55421590805057
+          -34.89414120779885, 150.6109724825384
         ],
         "message": "",
         "riddle": "What country was put up for sale on eBay in 2006?",
@@ -94,8 +92,7 @@ const DUCKS = [
     {
         "id": "39ba5b30-a6c6-4b01-82ab-afa34c21763f",
         "coordinates": [
-            -35.20555643238234,
-            150.55481135845187
+          -34.89453354407027, 150.6113628497532
         ],
         "message": "",
         "riddle": "What is the plural of cul-de-sac?",
@@ -110,8 +107,7 @@ const DUCKS = [
     {
         "id": "0fbfdf1d-58d4-4a14-b8e1-009ce3a53000",
         "coordinates": [
-            -35.205420604310675,
-            150.55524587631228
+          -34.89456172907476, 150.61165699967694
         ],
         "message": "",
         "riddle": "What is the profession of both of Jack Black's parents?",
@@ -126,8 +122,7 @@ const DUCKS = [
     {
         "id": "3132913b-e6da-498a-b149-1f119ad6c64c",
         "coordinates": [
-            -35.20607825873931,
-            150.55496692657474
+          -34.894953958769875, 150.61122013903528
         ],
         "message": "",
         "riddle": "Lyme disease is named after a town in wich U.S State?",
