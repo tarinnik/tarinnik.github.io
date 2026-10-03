@@ -2,8 +2,7 @@ const DUCKS = [
     {
         "id": "95b0131b-af53-47f9-85c0-7047b536fa42",
         "coordinates": [
-            -35.20660860105492,
-            150.55266022682193
+          -33.868770006782896, 151.20919923198466
         ],
         "message": "",
         "riddle": "What is the name of the punctuation mark that is a combination of a question and exclamation mark?",
@@ -18,8 +17,7 @@ const DUCKS = [
     {
         "id": "2f9a1550-c4da-441d-a635-7a65e842888e",
         "coordinates": [
-            -35.206223184803626,
-            150.55299282073977
+          -34.89444441636772, 150.61174617953512
         ],
         "message": "",
         "riddle": "What did Steve Jobs soak his feet in when he wanted to de-stress?",
@@ -33,9 +31,8 @@ const DUCKS = [
     },
     {
         "id": "717aaaf1-37c3-4f33-b00a-316b3842230c",
-        "coordinates": [
-            -35.20601295698641,
-            150.5531215667725
+      "coordinates": [
+        -34.89404017719985, 150.61140001197285
         ],
         "message": "",
         "riddle": "Every continent, except Antaractica, has a city called what?",
@@ -50,8 +47,7 @@ const DUCKS = [
     {
         "id": "b18c4a25-e11d-4e0f-a6e5-4cb9199d083a",
         "coordinates": [
-            -35.206004197482244,
-            150.55352926254275
+          -34.894980992666746, 150.6116200337285
         ],
         "message": "",
         "riddle": "What colour are the hairs of a polar bear's fur?",
