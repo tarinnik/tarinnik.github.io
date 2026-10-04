@@ -185,8 +185,8 @@ const RIDDLES = [
     riddleAnswer: 0
   },
   {
-    riddle: "What colour is the sunset on Mars?",
-    riddleAnswerOptions: ["Red", "Green", "Blue", "Orange"],
+    riddle: "Which country formally annexed Korea in 1910",
+    riddleAnswerOptions: ["Russia", "China", "Japan", "United States"],
     riddleAnswer: 2
   },
   {

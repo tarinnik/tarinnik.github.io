@@ -11,7 +11,7 @@ function setup() {
 }
 
 function setupMap() {
-  map = L.map('map').setView([-35.209640242440635, 150.55155538056127], 15);
+  map = L.map('map').setView([-35.16434487737039, 150.5859253037616], 15);
 
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
