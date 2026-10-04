@@ -679,7 +679,10 @@ const DUCKS = [
     ],
     "message": "",
     "riddle": "Which civilization built Machu Picchu?",
-    "riddleAnswerOptions": 0
+    "riddleAnswerOptions": [
+      "Inca", "Maya", "Aztec", "Moche"
+    ],
+    "riddleAnswer": 0
   },
   {
     "id": "b90a6733-034a-46f3-8da5-8cfebdfcbce1",
