@@ -45,9 +45,9 @@ const RIDDLES = [
     riddleAnswer: 0
   },
   {
-    riddle: "In the TV series MythBusters, a standard household vacuum cleaner lifted what?",
-    riddleAnswerOptions: ["A dog", "A bathtub", "A refrigerator", "A car"],
-    riddleAnswer: 3
+    riddle: "The Magna Carta was sealed in which century",
+    riddleAnswerOptions: ["11th", "12th", "13th", "14th"],
+    riddleAnswer: 2
   },
   {
     riddle: "The legendary Man in the Iron Mask was imprisoned in which country?",
