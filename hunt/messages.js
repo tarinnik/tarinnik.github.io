@@ -1,4 +1,4 @@
-const TOPIC = "51ULzeNMpv5pbWo4peYdeSLfj7RvQJMFwLaJjTbE4CmkAjREgm";
+const TOPIC = "51ULzeNMpv5pbWo4peYdeSLfj7RvQJMFwLajjTbE4CmkAjREgm";
 const DUCKS_FOUND = [];
 
 let eventFn = null;
@@ -27,7 +27,7 @@ function getMessages(fn) {
 }
 
 /**
- * Creates a duck found message 
+ * Creates a duck found message
  * @param {String} duckid the id of the duck found
  * @returns the message as a string
  */
@@ -50,7 +50,7 @@ function createDuckFoundMessage(duckid) {
  * Creates a riddle done message
  * @param {string} riddleId the id of the riddle
  * @param {bool} success if the riddle was answered correctly
- * @returns 
+ * @returns
  */
 function createRiddleDoneMessage(duckId, success) {
     let team = localStorage.getItem("teamName");
@@ -92,8 +92,8 @@ function clearMasterNotification() {
 
 /**
  * Creates and sends a points message
- * @param {string} team 
- * @param {number} points 
+ * @param {string} team
+ * @param {number} points
  */
 function addPoints(team, points) {
     let msg = {
