@@ -5,8 +5,8 @@ const RIDDLES = [
     "riddleAnswer": 2
   },
   {
-    "riddle": "What did Steve Jobs soak his feet in when he wanted to de-stress?",
-    "riddleAnswerOptions": ["A puddle", "A toilet", "A bucket", "A ditch"],
+    "riddle": "Who is the new CEO of Apple?",
+    "riddleAnswerOptions": ["Steve Wozniak", "John Ternus", "Tim Cook", "Craig Federighi"],
     "riddleAnswer": 1
   },
   {
@@ -15,9 +15,9 @@ const RIDDLES = [
     "riddleAnswer": 2
   },
   {
-    "riddle": "What colour are the hairs of a polar bear's fur?",
-    "riddleAnswerOptions": ["Cream", "Transparent", "White", "Grey"],
-    "riddleAnswer": 1
+    "riddle": "Who wrote Fahrenheit 451?",
+    "riddleAnswerOptions": ["Ray Bradbury", "Ernest Hemingway", "Isaac Asimov", "H.G. Wells"],
+    "riddleAnswer": 0
   },
   {
     "riddle": "What type of a fruit is a Bing?",
@@ -30,9 +30,9 @@ const RIDDLES = [
     "riddleAnswer": 1
   },
   {
-    "riddle": "What is the plural of cul-de-sac?",
-    "riddleAnswerOptions": ["Cul-de-sac", "Cul-des-sacs", "Culs-de-sac", "Culs-des-sacs"],
-    "riddleAnswer": 2
+    "riddle": "NCIS involves agents from which US military branch",
+    "riddleAnswerOptions": ["Army", "Navy", "Air Force", "National Guard"],
+    "riddleAnswer": 1
   },
   {
     "riddle": "What is the profession of both of Jack Black's parents?",
