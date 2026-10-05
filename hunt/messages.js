@@ -9,21 +9,21 @@ let hasLoaded = false;
  * @param {Function} fn a function to do further handling of an incoming message
  */
 function getMessages(fn) {
-    eventFn = fn;
-    events = new WebSocket(`wss://ntfy.sh/${TOPIC}/ws?since=all`);
-    events.onmessage = (e) => {
-        receiveMessage(e.data);
+  eventFn = fn;
+  events = new WebSocket(`wss://ntfy.sh/${TOPIC}/ws?since=all`);
+  events.onmessage = (e) => {
+    receiveMessage(e.data);
+  }
+  events.onerror = (_e) => {
+    if (hasLoaded) {
+      window.location.reload();
+    } else {
+      alert("No internet connection!");
     }
-    events.onerror = (_e) => {
-        if (hasLoaded) {
-            window.location.reload();
-        } else {
-            alert("No internet connection!");
-        }
-    }
-    events.onopen = (_e) => {
-        hasLoaded = true;
-    }
+  }
+  events.onopen = (_e) => {
+    hasLoaded = true;
+  }
 }
 
 /**
@@ -32,18 +32,18 @@ function getMessages(fn) {
  * @returns the message as a string
  */
 function createDuckFoundMessage(duckid) {
-    let team = localStorage.getItem("teamName");
-    if (team === null) {
-        window.location.href = "register.html";
-        return "";
-    }
+  let team = localStorage.getItem("teamName");
+  if (team === null) {
+    window.location.href = "register.html";
+    return "";
+  }
 
-    let message = {
-        "type": "duck_found",
-        "id": duckid,
-        "team": team,
-    };
-    return JSON.stringify(message);
+  let message = {
+    "type": "duck_found",
+    "id": duckid,
+    "team": team,
+  };
+  return JSON.stringify(message);
 }
 
 /**
@@ -53,20 +53,20 @@ function createDuckFoundMessage(duckid) {
  * @returns
  */
 function createRiddleDoneMessage(duckId, success) {
-    let team = localStorage.getItem("teamName");
-    if (team === null) {
-        window.location.href = "register.html";
-        return "";
-    }
+  let team = localStorage.getItem("teamName");
+  if (team === null) {
+    window.location.href = "register.html";
+    return "";
+  }
 
-    let type = (success) ? "riddle_success" : "riddle_fail";
+  let type = (success) ? "riddle_success" : "riddle_fail";
 
-    let message = {
-        "type": type,
-        "duckId": duckId,
-        "team": team,
-    };
-    return JSON.stringify(message);
+  let message = {
+    "type": type,
+    "duckId": duckId,
+    "team": team,
+  };
+  return JSON.stringify(message);
 }
 
 /**
@@ -74,20 +74,20 @@ function createRiddleDoneMessage(duckId, success) {
  * @param {string} message the message to send
  */
 function createMasterNotification(message) {
-    let msg = {
-        "type": "master_notification",
-        "message": message,
-    };
+  let msg = {
+    "type": "master_notification",
+    "message": message,
+  };
 
-    sendMessage(JSON.stringify(msg));
+  sendMessage(JSON.stringify(msg));
 }
 
 function clearMasterNotification() {
-    let message = {
-        "type": "clear_notification",
-    };
+  let message = {
+    "type": "clear_notification",
+  };
 
-    sendMessage(JSON.stringify(message));
+  sendMessage(JSON.stringify(message));
 }
 
 /**
@@ -96,13 +96,13 @@ function clearMasterNotification() {
  * @param {number} points
  */
 function addPoints(team, points) {
-    let msg = {
-        "type": "add_points",
-        "team": team,
-        "points": points
-    };
+  let msg = {
+    "type": "add_points",
+    "team": team,
+    "points": points
+  };
 
-    sendMessage(JSON.stringify(msg))
+  sendMessage(JSON.stringify(msg))
 }
 
 /**
@@ -110,29 +110,29 @@ function addPoints(team, points) {
  * @param {String} message the message to send
  */
 function sendMessage(message) {
-    fetch(`https://ntfy.sh/${TOPIC}`, {
-        method: "POST",
-        body: message
-    });
+  fetch(`https://ntfy.sh/${TOPIC}`, {
+    method: "POST",
+    body: message
+  });
 }
 
 function receiveMessage(message) {
-    console.debug(message);
-    let ntfyData = JSON.parse(message);
-    if (ntfyData.event !== "message") {
-        return;
-    }
+  console.debug(message);
+  let ntfyData = JSON.parse(message);
+  if (ntfyData.event !== "message") {
+    return;
+  }
 
-    console.debug(ntfyData.message);
-    let msg = JSON.parse(ntfyData.message);
+  console.debug(ntfyData.message);
+  let msg = JSON.parse(ntfyData.message);
 
-    if (msg.type === "duck_found") {
-        DUCKS_FOUND.push(msg.id);
-    }
+  if (msg.type === "duck_found") {
+    DUCKS_FOUND.push(msg.id);
+  }
 
   // MESSAGES.push(msg);
 
-    if (typeof (eventFn) === "function") {
-        eventFn(msg)
-    }
+  if (typeof (eventFn) === "function") {
+    eventFn(msg)
+  }
 }
